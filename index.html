@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Pro - News Magazine WordPress Theme</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <div class="date">
+                    <span id="current-date">Monday, June 10, 2024</span>
+                </div>
+                <div class="trending">
+                    <span>TRENDING:</span>
+                    <a href="#">Climate Change Summit Begins Today</a>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>NEWSPAPER<span>PRO</span></h1>
+                </a>
+            </div>
+            <div class="ad-space"  style="display:none">
+                <img src="images/ad-placeholder.svg" alt="Advertisement">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">World</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Entertainment</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-item featured-large">
+                    <img src="images/featured-large.svg" alt="KTM Marchetti Signs">
+                    <div class="featured-content">
+                        <h3><a href="#">KTM Marchetti Signs with Larranaga and Zanotti for Next Season</a></h3>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> Armin Vans</span>
+                            <span><i class="far fa-clock"></i> August 7, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-item featured-double">
+                    <div class="featured-post-left">
+                        <img src="images/featured-small-1.svg" alt="Celebrating 25 Years">
+                        <div class="featured-content">
+                            <h3><a href="#">Celebrating 25 Years Since Italy's First Ever Touring Inclusion</a></h3>
+                            <div class="post-meta">
+                                <span><i class="far fa-user"></i> Armin Vans</span>
+                                <span><i class="far fa-clock"></i> August 7, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-post-right">
+                        <img src="images/featured-small-3.svg" alt="Racing Championship">
+                        <div class="featured-content">
+                            <h3><a href="#">Racing Championship Series Kicks Off With Intense Competition</a></h3>
+                            <div class="post-meta">
+                                <span><i class="far fa-user"></i> John Doe</span>
+                                <span><i class="far fa-clock"></i> August 5, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="images/featured-small-2.svg" alt="Rumors and Gossip">
+                    <div class="featured-content">
+                        <h3><a href="#">Rumors, Gossip and Unfounded Truths: Every Moto Release Story</a></h3>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> Armin Vans</span>
+                            <span><i class="far fa-clock"></i> August 7, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="main-content container">
+        <!-- Posts Grid -->
+        <div class="content-area">
+            <!-- Tabs Navigation -->
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <ul>
+                        <li class="active" data-tab="latest"><a href="#">Latest</a></li>
+                        <li data-tab="popular"><a href="#">Popular</a></li>
+                        <li data-tab="trending"><a href="#">Trending</a></li>
+                        <li data-tab="editors-pick"><a href="#">Editor's Pick</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Latest Tab (Active by default) -->
+                    <div id="latest" class="tab-pane active">
+                        <div class="tab-content-layout">
+                            <div class="main-article">
+                                <img src="images/article-1.svg" alt="Street Rally Action">
+                                <div class="category-tag">Motorsport</div>
+                                <h3><a href="#">Are you Ready? Complete Recap of the Street Rally Action Shootout</a></h3>
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> Armin Vans</span>
+                                    <span><i class="far fa-clock"></i> August 7, 2023</span>
+                                </div>
+                                <div class="post-excerpt">
+                                    <p>We woke reasonably late following the feast and free flowing wine the night before. After gathering ourselves and our packs, we headed down to our homestay family's small dining...</p>
+                                </div>
+                            </div>
+                            <div class="article-list">
+                                <div class="list-item">
+                                    <img src="images/article-2.svg" alt="Motocross Championship">
+                                    <div class="list-content">
+                                        <div class="category-tag">Racing</div>
+                                        <h4><a href="#">Motocross Championship Kicks Off With Intense First Round</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 7, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-1.svg" alt="Racing News">
+                                    <div class="list-content">
+                                        <div class="category-tag">News</div>
+                                        <h4><a href="#">Top Teams Prepare for the Upcoming Season with New Gear</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 5, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-2.svg" alt="Technology">
+                                    <div class="list-content">
+                                        <div class="category-tag">Technology</div>
+                                        <h4><a href="#">New Safety Features Revolutionize Professional Racing</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 3, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Tab -->
+                    <div id="popular" class="tab-pane">
+                        <div class="tab-content-layout">
+                            <div class="main-article">
+                                <img src="images/article-2.svg" alt="Popular Post 1">
+                                <div class="category-tag">Equipment</div>
+                                <h3><a href="#">The Best Motorcycle Racing Gear for 2023 Season</a></h3>
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> John Doe</span>
+                                    <span><i class="far fa-clock"></i> August 5, 2023</span>
+                                </div>
+                                <div class="post-excerpt">
+                                    <p>The latest racing gear offers improved safety features and comfort for professional racers. Our comprehensive guide covers everything you need to know...</p>
+                                </div>
+                            </div>
+                            <div class="article-list">
+                                <div class="list-item">
+                                    <img src="images/article-1.svg" alt="Popular Post 2">
+                                    <div class="list-content">
+                                        <div class="category-tag">Travel</div>
+                                        <h4><a href="#">Top 10 Racing Circuits Every Motorsport Fan Should Visit</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 3, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-2.svg" alt="Popular Post 3">
+                                    <div class="list-content">
+                                        <div class="category-tag">History</div>
+                                        <h4><a href="#">Legendary Racers Who Changed the Sport Forever</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 1, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-1.svg" alt="Popular Post 4">
+                                    <div class="list-content">
+                                        <div class="category-tag">Lifestyle</div>
+                                        <h4><a href="#">Racing Memorabilia: Starting Your Collection Right</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> July 28, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trending Tab -->
+                    <div id="trending" class="tab-pane">
+                        <div class="tab-content-layout">
+                            <div class="main-article">
+                                <img src="images/article-1.svg" alt="Trending Post 1">
+                                <div class="category-tag">Technology</div>
+                                <h3><a href="#">Electric Racing Series Gains Momentum with New Manufacturers</a></h3>
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> Michael Brown</span>
+                                    <span><i class="far fa-clock"></i> August 6, 2023</span>
+                                </div>
+                                <div class="post-excerpt">
+                                    <p>The future of motorsport is electric, with major manufacturers joining the revolution. Learn about the latest developments in sustainable racing...</p>
+                                </div>
+                            </div>
+                            <div class="article-list">
+                                <div class="list-item">
+                                    <img src="images/article-2.svg" alt="Trending Post 2">
+                                    <div class="list-content">
+                                        <div class="category-tag">Career</div>
+                                        <h4><a href="#">Virtual Racing Simulators: The New Training Ground for Pros</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 4, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-1.svg" alt="Trending Post 3">
+                                    <div class="list-content">
+                                        <div class="category-tag">Events</div>
+                                        <h4><a href="#">Upcoming Racing Events You Won't Want to Miss</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> August 1, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-2.svg" alt="Trending Post 4">
+                                    <div class="list-content">
+                                        <div class="category-tag">Interview</div>
+                                        <h4><a href="#">One-on-One with Championship Leader: Exclusive Interview</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> July 29, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Editor's Pick Tab -->
+                    <div id="editors-pick" class="tab-pane">
+                        <div class="tab-content-layout">
+                            <div class="main-article">
+                                <img src="images/article-2.svg" alt="Editor's Pick 1">
+                                <div class="category-tag">Safety</div>
+                                <h3><a href="#">The Evolution of Safety in Motorsport: A Historical Perspective</a></h3>
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> Robert Wilson</span>
+                                    <span><i class="far fa-clock"></i> August 2, 2023</span>
+                                </div>
+                                <div class="post-excerpt">
+                                    <p>From leather helmets to HANS devices, safety in motorsport has come a long way. Our in-depth analysis explores the innovations that have saved countless lives...</p>
+                                </div>
+                            </div>
+                            <div class="article-list">
+                                <div class="list-item">
+                                    <img src="images/article-1.svg" alt="Editor's Pick 2">
+                                    <div class="list-content">
+                                        <div class="category-tag">History</div>
+                                        <h4><a href="#">Behind the Scenes: A Day in the Life of a Racing Team Engineer</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> July 30, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-2.svg" alt="Editor's Pick 3">
+                                    <div class="list-content">
+                                        <div class="category-tag">Analysis</div>
+                                        <h4><a href="#">Breaking Down the Championship Points Battle</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> July 28, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <img src="images/article-1.svg" alt="Editor's Pick 4">
+                                    <div class="list-content">
+                                        <div class="category-tag">Opinion</div>
+                                        <h4><a href="#">Why This Season Could Be the Most Exciting in Decades</a></h4>
+                                        <div class="post-meta">
+                                            <span><i class="far fa-clock"></i> July 25, 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget popular-posts">
+                <h3 class="widget-title">Popular Posts</h3>
+                <div class="post-item">
+                    <div class="post-thumb">
+                        <img src="images/sidebar-post.svg" alt="Popular Post">
+                    </div>
+                    <div class="post-info">
+                        <h4><a href="#">KTM Marchetti Signs with Larranaga and Zanotti</a></h4>
+                        <div class="post-meta">
+                            <span><i class="far fa-clock"></i> August 7, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-thumb">
+                        <img src="images/sidebar-post.svg" alt="Popular Post">
+                    </div>
+                    <div class="post-info">
+                        <h4><a href="#">Celebrating 25 Years Since Italy's First Ever Touring</a></h4>
+                        <div class="post-meta">
+                            <span><i class="far fa-clock"></i> August 7, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget categories">
+                <h3 class="widget-title">Categories</h3>
+                <ul>
+                    <li><a href="#">Motorsports</a></li>
+                    <li><a href="#">Racing</a></li>
+                    <li><a href="#">Motorcycles</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-widgets">
+                <div class="footer-widget">
+                    <h3>About Us</h3>
+                    <p>Newspaper Pro is a premium WordPress theme designed for news, magazine, and blog websites.</p>
+                </div>
+                <div class="footer-widget">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">World</a></li>
+                        <li><a href="#">Politics</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Technology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Newspaper Pro. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current date
+        const date = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+        });
+
+        // Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabLinks = document.querySelectorAll('.tabs-nav li');
+            
+            tabLinks.forEach(function(tabLink) {
+                tabLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs
+                    tabLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab panes
+                    const tabPanes = document.querySelectorAll('.tab-pane');
+                    tabPanes.forEach(function(pane) {
+                        pane.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding tab pane
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
