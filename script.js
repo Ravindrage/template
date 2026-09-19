@@ -49,10 +49,10 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
     var scrolled = window.scrollY + window.innerHeight;
     var full = document.documentElement.scrollHeight;
     if(scrolled > full * 0.45){
-      if(sessionStorage.getItem('backstageModalSeen')) { shown = true; return; }
+      if(sessionStorage.getItem('Hariom ComputersModalSeen')) { shown = true; return; }
       modal.classList.add('visible');
       shown = true;
-      sessionStorage.setItem('backstageModalSeen','1');
+      sessionStorage.setItem('Hariom ComputersModalSeen','1');
     }
   }
 

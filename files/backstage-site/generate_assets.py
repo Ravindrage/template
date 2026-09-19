@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate blueprint-style SVG illustrations for the Backstage site."""
+"""Generate blueprint-style SVG illustrations for the Hariom Computers site."""
 import os
 
 OUT = "/home/claude/agency-site/assets"
@@ -322,13 +322,13 @@ def svc_maintenance(w=420, h=262):
 
 
 def hero_home(w=420, h=262):
-    """Home hero: agency (front) + Backstage (behind) relationship."""
+    """Home hero: agency (front) + Hariom Computers (behind) relationship."""
     b = [grid(w, h, 20, D_LINE_SOFT)]
     # back panel = us
     b.append(f'<rect x="60" y="40" width="200" height="150" fill="{D_FILL}" stroke="{D_LINE}" '
              f'stroke-width="1" stroke-dasharray="6 4"/>')
     b.append(f'<text x="74" y="62" font-family="IBM Plex Mono, monospace" font-size="10" '
-             f'fill="{AMBER}">BACKSTAGE</text>')
+             f'fill="{AMBER}">Hariom Computers</text>')
     # code lines on back panel
     for i, wd in enumerate((110, 78, 132, 94, 60)):
         b.append(f'<rect x="74" y="{76 + i*18}" width="{wd}" height="6" fill="{AMBER}" opacity="{0.5 - i*0.06:.2f}"/>')
