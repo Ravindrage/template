@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backstage — Websites and web apps, built properly</title>
+<meta name="description" content="WordPress, Shopify and Laravel development from a developer with 15+ years and a 5.0 rating. Fixed prices from ₹15,000. Free website audit, no obligation.">
+<meta property="og:title" content="Backstage — Websites and web apps, built properly">
+<meta property="og:description" content="Fixed-price WordPress, Shopify and Laravel builds. 5.0 rating across 67 reviews. Get a free website audit.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --stage:#170F1F;
+  --stage-2:#1F1529;
+  --stage-3:#2A1D36;
+  --house:#F7F1E6;
+  --house-2:#EFE6D6;
+  --brass:#D6A43C;
+  --brass-deep:#B5862A;
+  --curtain:#8C2233;
+  --mauve:#7A6B85;
+  --cream:#F7F1E6;
+  --cream-dim:#C9BDD1;
+  --ink:#1A1220;
+  --ink-soft:#5A4B64;
+  --maxw:1140px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+}
+
+body{
+  margin:0;
+  background:var(--house);
+  color:var(--ink);
+  font-family:Inter, system-ui, sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+h1,h2,h3{margin:0; font-family:Fraunces, Georgia, serif; font-weight:600; line-height:1.08; letter-spacing:-0.02em;}
+p{margin:0;}
+::selection{background:var(--brass); color:var(--stage);}
+:focus-visible{outline:2.5px solid var(--brass); outline-offset:3px; border-radius:2px;}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+.narrow{max-width:760px;}
+
+/* ---------------- buttons ---------------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  font-family:Inter, sans-serif; font-weight:600; font-size:16px;
+  padding:15px 28px; border-radius:999px; text-decoration:none; cursor:pointer;
+  border:1.5px solid transparent;
+  transition:background .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.btn-brass{background:var(--brass); color:#241705; box-shadow:0 0 0 0 rgba(214,164,60,.5);}
+.btn-brass:hover{background:#E6B44C; box-shadow:0 0 28px -4px rgba(214,164,60,.55);}
+.btn-ghost-light{border-color:rgba(247,241,230,.35); color:var(--cream);}
+.btn-ghost-light:hover{border-color:var(--brass); color:var(--brass);}
+.btn-ghost-dark{border-color:rgba(26,18,32,.25); color:var(--ink);}
+.btn-ghost-dark:hover{border-color:var(--ink); background:var(--ink); color:var(--cream);}
+.btn-wa{background:#1EA952; color:#fff;}
+.btn-wa:hover{background:#178f44;}
+.btn-wa svg{width:19px; height:19px; fill:currentColor;}
+.btn-lg{padding:18px 36px; font-size:17px;}
+
+/* ---------------- header ---------------- */
+.topbar{
+  position:sticky; top:0; z-index:60;
+  background:rgba(23,15,31,.82);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(247,241,230,.1);
+}
+.topbar-in{display:flex; align-items:center; justify-content:space-between; height:70px;}
+.logo{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--cream);}
+.logo-bulb{
+  width:11px; height:11px; border-radius:50%;
+  background:var(--brass);
+  box-shadow:0 0 14px 2px rgba(214,164,60,.75);
+}
+.logo-name{font-family:Fraunces, serif; font-size:21px; font-weight:600; letter-spacing:-.01em;}
+.topnav{display:none; gap:30px;}
+@media(min-width:900px){ .topnav{display:flex;} }
+.topnav a{color:var(--cream-dim); text-decoration:none; font-size:15.5px; transition:color .15s;}
+.topnav a:hover{color:var(--cream);}
+.topbar .btn{padding:11px 22px; font-size:15px;}
+.topbar-cta{display:none;}
+@media(min-width:620px){ .topbar-cta{display:inline-flex;} }
+
+/* ---------------- stage (dark) sections ---------------- */
+.stage{background:var(--stage); color:var(--cream); position:relative; overflow:hidden;}
+.stage h1,.stage h2,.stage h3{color:var(--cream);}
+
+/* spotlight hero */
+.hero{padding:80px 0 92px; position:relative;}
+.hero::before{
+  content:""; position:absolute; top:-340px; left:50%; transform:translateX(-58%);
+  width:1100px; height:820px; pointer-events:none;
+  background:radial-gradient(ellipse 50% 42% at 50% 50%, rgba(214,164,60,.20), rgba(214,164,60,.07) 45%, transparent 72%);
+}
+/* two crossing light beams */
+.hero::after{
+  content:""; position:absolute; top:-120px; left:8%;
+  width:520px; height:900px; pointer-events:none;
+  background:linear-gradient(172deg, rgba(214,164,60,.10), transparent 58%);
+  transform:rotate(9deg);
+  filter:blur(6px);
+}
+.hero-in{position:relative; z-index:2;}
+.hero-grid{display:grid; gap:56px; grid-template-columns:1fr; align-items:center;}
+@media(min-width:1000px){ .hero-grid{grid-template-columns:1.08fr .92fr; gap:64px;} }
+
+/* audit report preview card */
+.report{
+  background:linear-gradient(168deg, var(--stage-2), var(--stage-3));
+  border:1px solid rgba(214,164,60,.3);
+  border-radius:5px; overflow:hidden;
+  box-shadow:0 34px 70px -26px rgba(0,0,0,.72);
+}
+.report-top{
+  padding:16px 22px; border-bottom:1px solid rgba(247,241,230,.12);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.report-top span{font-family:Fraunces, serif; font-size:1.02rem; color:var(--cream);}
+.report-top em{font-style:normal; font-size:12.5px; color:var(--brass); border:1px solid rgba(214,164,60,.45); border-radius:999px; padding:3px 11px;}
+.report-body{padding:8px 22px 20px;}
+.rrow{display:flex; align-items:center; gap:14px; padding:15px 0; border-bottom:1px solid rgba(247,241,230,.09);}
+.rrow:last-child{border-bottom:none;}
+.rdot{width:9px; height:9px; border-radius:50%; flex:none;}
+.rdot.bad{background:#E0574F; box-shadow:0 0 9px rgba(224,87,79,.8);}
+.rdot.warn{background:var(--brass); box-shadow:0 0 9px rgba(214,164,60,.8);}
+.rdot.ok{background:#5FD38B; box-shadow:0 0 9px rgba(95,211,139,.7);}
+.rtext{flex:1; min-width:0;}
+.rtext b{display:block; font-weight:500; font-size:.95rem; color:var(--cream);}
+.rtext small{display:block; margin-top:3px; font-size:13px; color:var(--mauve);}
+.rscore{font-family:Fraunces, serif; font-size:1.05rem; color:var(--brass); flex:none;}
+.report-foot{
+  padding:15px 22px; background:rgba(0,0,0,.22);
+  border-top:1px solid rgba(247,241,230,.1);
+  font-size:13.5px; color:var(--mauve);
+}
+
+.hero-kicker{
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:14.5px; color:var(--brass);
+  border:1px solid rgba(214,164,60,.42); border-radius:999px;
+  padding:7px 17px; margin-bottom:30px;
+}
+.hero-kicker b{color:var(--cream); font-weight:600;}
+.pulse{width:7px; height:7px; border-radius:50%; background:#5FD38B; box-shadow:0 0 9px #5FD38B;}
+
+.hero h1{
+  font-size:clamp(2.35rem, 4.6vw, 3.65rem);
+  max-width:17ch;
+  font-weight:600;
+}
+.hero h1 em{font-style:italic; font-weight:300; color:var(--brass);}
+.hero-lead{
+  margin-top:26px; max-width:52ch;
+  font-size:clamp(1.05rem,1.9vw,1.22rem);
+  color:var(--cream-dim); line-height:1.65;
+}
+.hero-actions{margin-top:38px; display:flex; flex-wrap:wrap; gap:14px;}
+.hero-reassure{margin-top:18px; font-size:14.5px; color:var(--mauve);}
+
+.marquee-stats{
+  margin-top:64px; padding-top:34px;
+  border-top:1px solid rgba(247,241,230,.13);
+  display:grid; gap:28px;
+  grid-template-columns:repeat(2,1fr);
+}
+@media(min-width:620px){ .marquee-stats{grid-template-columns:repeat(4,1fr);} }
+.mstat b{font-size:2rem;}
+.mstat b{
+  display:block; font-family:Fraunces, serif; font-size:2.3rem;
+  font-weight:600; color:var(--brass); line-height:1;
+}
+.mstat span{display:block; margin-top:9px; font-size:14.5px; color:var(--cream-dim);}
+
+/* ---------------- house (light) sections ---------------- */
+.house{background:var(--house); padding:96px 0;}
+.house-2{background:var(--house-2); padding:96px 0;}
+.sec-head{max-width:620px; margin-bottom:56px;}
+.sec-head h2{font-size:clamp(1.95rem,3.9vw,2.85rem);}
+.sec-head p{margin-top:20px; color:var(--ink-soft); font-size:1.07rem;}
+.stage .sec-head p{color:var(--cream-dim);}
+
+/* pain list */
+.pain-grid{display:grid; gap:2px; background:rgba(26,18,32,.14); border:1px solid rgba(26,18,32,.14);}
+.pain{background:var(--house); padding:30px 28px;}
+.pain h3{font-size:1.16rem; margin-bottom:11px;}
+.pain p{color:var(--ink-soft); font-size:.98rem;}
+@media(min-width:720px){ .pain-grid{grid-template-columns:repeat(3,1fr);} }
+
+/* ---------------- pricing ---------------- */
+.tiers{display:grid; gap:24px; grid-template-columns:1fr;}
+@media(min-width:900px){ .tiers{grid-template-columns:repeat(3,1fr); align-items:start;} }
+.tier{
+  background:var(--house); border:1px solid rgba(26,18,32,.16);
+  border-radius:4px; padding:34px 30px;
+  display:flex; flex-direction:column;
+  position:relative;
+}
+.tier.pick{
+  background:var(--stage); color:var(--cream);
+  border-color:var(--stage);
+  box-shadow:0 26px 60px -28px rgba(23,15,31,.6);
+}
+@media(min-width:900px){ .tier.pick{transform:translateY(-14px); padding-bottom:48px;} }
+.tier.pick h3{color:var(--cream);}
+.tier-flag{
+  position:absolute; top:-13px; left:30px;
+  background:var(--curtain); color:#fff;
+  font-size:12.5px; font-weight:600; letter-spacing:.02em;
+  padding:5px 14px; border-radius:999px;
+}
+.tier h3{font-size:1.32rem; margin-bottom:16px;}
+.tier .amount{
+  font-family:Fraunces, serif; font-size:2.15rem; font-weight:600;
+  letter-spacing:-.02em; line-height:1.1;
+}
+.tier.pick .amount{color:var(--brass);}
+.tier .terms{margin-top:8px; font-size:14.5px; color:var(--ink-soft);}
+.tier.pick .terms{color:var(--cream-dim);}
+.tier ul{list-style:none; margin:26px 0 30px; padding:0; display:grid; gap:13px;}
+.tier li{display:flex; gap:11px; font-size:.97rem; color:var(--ink-soft); line-height:1.5;}
+.tier.pick li{color:var(--cream-dim);}
+.tier li svg{width:17px; height:17px; flex:none; margin-top:4px; stroke:var(--brass); fill:none; stroke-width:2.4;}
+.tier .btn{margin-top:auto; width:100%;}
+
+.tier-aside{
+  margin-top:34px; padding:22px 26px;
+  background:var(--house-2); border-left:3px solid var(--brass);
+  font-size:.97rem; color:var(--ink-soft);
+}
+.house-2 .tier-aside{background:var(--house);}
+.tier-aside a{color:var(--curtain); font-weight:600;}
+
+/* ---------------- process ---------------- */
+.steps{display:grid; gap:0;}
+.step{
+  display:grid; grid-template-columns:auto 1fr; gap:26px;
+  padding:30px 0; border-bottom:1px solid rgba(247,241,230,.14);
+}
+.step:last-child{border-bottom:none;}
+.step-n{
+  width:44px; height:44px; border-radius:50%;
+  border:1.5px solid rgba(214,164,60,.5); color:var(--brass);
+  display:flex; align-items:center; justify-content:center;
+  font-family:Fraunces, serif; font-size:1.05rem;
+}
+.step h3{font-size:1.2rem; margin-bottom:8px;}
+.step p{color:var(--cream-dim); max-width:62ch; font-size:1rem;}
+
+/* ---------------- work ---------------- */
+.work-row{display:grid; gap:22px; grid-template-columns:1fr;}
+@media(min-width:700px){ .work-row{grid-template-columns:repeat(2,1fr);} }
+.work{border:1px solid rgba(26,18,32,.16); background:var(--house); border-radius:4px; overflow:hidden;}
+.work-img{background:var(--house-2); border-bottom:1px solid rgba(26,18,32,.14);}
+.work-img img{width:100%; height:auto; display:block;}
+.work-txt{padding:22px 24px;}
+.work-txt h3{font-size:1.1rem; margin-bottom:8px;}
+.work-txt p{color:var(--ink-soft); font-size:.95rem;}
+.work-txt .stack{margin-top:14px; font-size:13.5px; color:var(--mauve);}
+
+/* ---------------- proof ---------------- */
+.quotes{display:grid; gap:22px; grid-template-columns:1fr;}
+@media(min-width:760px){ .quotes{grid-template-columns:repeat(2,1fr);} }
+.quote{
+  background:var(--stage-2); border:1px solid rgba(247,241,230,.12);
+  border-radius:4px; padding:30px 28px;
+}
+.quote .rating{color:var(--brass); font-size:15px; letter-spacing:3px; margin-bottom:16px;}
+.quote p{font-family:Fraunces, serif; font-size:1.13rem; line-height:1.48; color:var(--cream);}
+.quote footer{
+  margin-top:20px; display:flex; align-items:center; gap:13px;
+  font-size:14.5px; color:var(--mauve);
+}
+.avatar{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  background:var(--stage-3); border:1px solid rgba(214,164,60,.45);
+  display:flex; align-items:center; justify-content:center;
+  font-family:Fraunces, serif; font-size:14px; color:var(--brass);
+}
+
+/* ---------------- audit / marquee CTA ---------------- */
+.audit{
+  background:var(--stage-2);
+  border-top:1px solid rgba(214,164,60,.28);
+  border-bottom:1px solid rgba(214,164,60,.28);
+  padding:88px 0; position:relative;
+}
+.bulbs{
+  position:absolute; left:0; right:0; height:6px;
+  display:flex; justify-content:space-between; padding:0 22px;
+}
+.bulbs.t{top:-3px;} .bulbs.b{bottom:-3px;}
+.bulbs i{
+  width:6px; height:6px; border-radius:50%; background:var(--brass);
+  box-shadow:0 0 10px 1px rgba(214,164,60,.8);
+  animation:flicker 3.4s infinite ease-in-out;
+}
+.bulbs i:nth-child(2n){animation-delay:.5s;}
+.bulbs i:nth-child(3n){animation-delay:1.1s;}
+.bulbs i:nth-child(5n){animation-delay:1.7s;}
+@keyframes flicker{0%,100%{opacity:1;} 45%{opacity:.35;}}
+.audit-in{text-align:center; max-width:660px; margin:0 auto;}
+.audit-in h2{font-size:clamp(2rem,4.2vw,3rem);}
+.audit-in p{margin-top:20px; color:var(--cream-dim); font-size:1.08rem;}
+.audit-actions{margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
+.audit-list{
+  margin:36px auto 0; padding:0; list-style:none; max-width:560px;
+  display:grid; gap:12px; text-align:left;
+}
+.audit-list li{display:flex; gap:12px; color:var(--cream-dim); font-size:.97rem;}
+.audit-list svg{width:18px; height:18px; flex:none; margin-top:4px; stroke:var(--brass); fill:none; stroke-width:2.4;}
+
+/* ---------------- faq ---------------- */
+.faq{border-top:1px solid rgba(26,18,32,.16);}
+.faq details{border-bottom:1px solid rgba(26,18,32,.16);}
+.faq summary{
+  cursor:pointer; list-style:none; padding:24px 0;
+  display:flex; justify-content:space-between; align-items:center; gap:22px;
+  font-family:Fraunces, serif; font-size:1.16rem; font-weight:600; color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .mark{
+  flex:none; width:26px; height:26px; border-radius:50%;
+  border:1.5px solid var(--brass); color:var(--brass);
+  display:flex; align-items:center; justify-content:center; font-size:17px; line-height:1;
+  transition:transform .22s ease, background .22s ease, color .22s ease;
+}
+.faq details[open] summary .mark{transform:rotate(45deg); background:var(--brass); color:var(--house);}
+.faq .ans{padding:0 0 26px; color:var(--ink-soft); max-width:68ch;}
+
+/* ---------------- closing ---------------- */
+.close-sec{padding:100px 0;}
+.close-in{max-width:700px;}
+.close-in h2{font-size:clamp(2.1rem,4.6vw,3.2rem);}
+.close-in p{margin-top:22px; color:var(--cream-dim); font-size:1.1rem; max-width:52ch;}
+.close-actions{margin-top:36px; display:flex; flex-wrap:wrap; gap:14px;}
+.close-contact{
+  margin-top:48px; padding-top:30px;
+  border-top:1px solid rgba(247,241,230,.14);
+  display:grid; gap:22px; grid-template-columns:1fr;
+}
+@media(min-width:640px){ .close-contact{grid-template-columns:repeat(2,1fr);} }
+.cc h4{margin:0 0 6px; font-size:14px; font-weight:600; color:var(--mauve);}
+.cc a{color:var(--cream); text-decoration:none; font-size:1.02rem;}
+.cc a:hover{color:var(--brass);}
+
+/* ---------------- footer ---------------- */
+.foot{background:var(--stage); color:var(--mauve); padding:34px 0; border-top:1px solid rgba(247,241,230,.1);}
+.foot-in{display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; font-size:14.5px;}
+.foot a{color:var(--mauve); text-decoration:none;}
+.foot a:hover{color:var(--brass);}
+.foot nav{display:flex; gap:22px; flex-wrap:wrap;}
+
+/* ---------------- sticky mobile bar + whatsapp ---------------- */
+.stickybar{
+  position:fixed; left:0; right:0; bottom:0; z-index:70;
+  background:rgba(23,15,31,.95); backdrop-filter:blur(10px);
+  border-top:1px solid rgba(214,164,60,.3);
+  padding:11px 14px; display:flex; gap:10px;
+}
+.stickybar .btn{flex:1; padding:13px 14px; font-size:15px;}
+@media(min-width:900px){ .stickybar{display:none;} }
+@media(max-width:899px){ body{padding-bottom:80px;} }
+.wa-fab{
+  position:fixed; right:22px; bottom:22px; z-index:71;
+  width:56px; height:56px; border-radius:50%; background:#1EA952;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 26px -6px rgba(0,0,0,.45); text-decoration:none;
+  transition:transform .16s ease;
+}
+.wa-fab:hover{transform:scale(1.07);}
+.wa-fab svg{width:29px; height:29px; fill:#fff;}
+@media(max-width:899px){ .wa-fab{bottom:84px; right:16px; width:50px; height:50px;} .wa-fab svg{width:26px; height:26px;} }
+
+/* ---------------- modal ---------------- */
+.ov{
+  position:fixed; inset:0; z-index:100; padding:20px;
+  background:rgba(12,7,17,.72); backdrop-filter:blur(3px);
+  display:none; align-items:center; justify-content:center;
+}
+.ov.on{display:flex;}
+.sheet{
+  background:var(--house); width:100%; max-width:470px; border-radius:5px;
+  padding:38px 34px; position:relative; max-height:90vh; overflow-y:auto;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5);
+}
+.sheet h3{font-size:1.65rem; max-width:18ch;}
+.sheet .sub{margin-top:12px; color:var(--ink-soft); font-size:.98rem;}
+.x{
+  position:absolute; top:14px; right:14px; width:34px; height:34px;
+  background:none; border:none; cursor:pointer; color:var(--ink-soft);
+  font-size:22px; line-height:1; border-radius:50%;
+}
+.x:hover{background:var(--house-2); color:var(--ink);}
+.sheet form{margin-top:26px; display:grid; gap:15px;}
+.sheet label{display:block; font-size:13.5px; font-weight:600; color:var(--ink-soft); margin-bottom:7px;}
+.sheet input, .sheet textarea{
+  width:100%; padding:13px 14px; font-family:Inter, sans-serif; font-size:16px;
+  color:var(--ink); background:#fff; border:1.5px solid rgba(26,18,32,.2); border-radius:3px;
+}
+.sheet input:focus, .sheet textarea:focus{border-color:var(--brass); outline:none; box-shadow:0 0 0 3px rgba(214,164,60,.22);}
+.sheet .btn{width:100%; margin-top:4px;}
+.sheet .fine{font-size:13px; color:var(--mauve); text-align:center;}
+
+/* single orchestrated page-load reveal, hero only */
+.rise{animation:rise .85s cubic-bezier(.19,.86,.31,1) both;}
+.rise.a{animation-delay:.06s;} .rise.b{animation-delay:.16s;}
+.rise.c{animation-delay:.26s;} .rise.d{animation-delay:.36s;}
+@keyframes rise{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="logo" href="#top">
+      <span class="logo-bulb"></span>
+      <span class="logo-name">Backstage</span>
+    </a>
+    <nav class="topnav">
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <button class="btn btn-brass topbar-cta" onclick="openSheet()">Get a free audit</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="stage hero">
+    <div class="wrap hero-in">
+     <div class="hero-grid">
+      <div>
+      <span class="hero-kicker rise a">
+        <span class="pulse"></span>
+        Taking <b>2 new projects</b> this month
+      </span>
+      <h1 class="rise a">Your website should be earning its keep, not <em>quietly costing you</em>.</h1>
+      <p class="hero-lead rise b">
+        I build WordPress sites, Shopify stores and custom Laravel applications for businesses
+        that are tired of developers who disappear. Fifteen years of it. Fixed prices, agreed before we start.
+      </p>
+      <div class="hero-actions rise c">
+        <button class="btn btn-brass btn-lg" onclick="openSheet()">Get a free website audit</button>
+        <a class="btn btn-ghost-light btn-lg" href="#pricing">See prices</a>
+      </div>
+      <p class="hero-reassure rise c">Free, no obligation, and you get the report whether or not you hire me.</p>
+
+      </div>
+
+      <aside class="report rise c" aria-label="Example of the free audit report">
+        <div class="report-top">
+          <span>Your site, reviewed</span>
+          <em>Sample</em>
+        </div>
+        <div class="report-body">
+          <div class="rrow">
+            <i class="rdot bad"></i>
+            <span class="rtext"><b>Loads in 6.4 seconds on mobile</b><small>Unoptimised images are most of it</small></span>
+            <span class="rscore">Fix first</span>
+          </div>
+          <div class="rrow">
+            <i class="rdot bad"></i>
+            <span class="rtext"><b>Four plugins two years out of date</b><small>One has a known security hole</small></span>
+            <span class="rscore">Fix first</span>
+          </div>
+          <div class="rrow">
+            <i class="rdot warn"></i>
+            <span class="rtext"><b>No backups running</b><small>Nothing to restore from if it goes down</small></span>
+            <span class="rscore">Soon</span>
+          </div>
+          <div class="rrow">
+            <i class="rdot ok"></i>
+            <span class="rtext"><b>Mobile layout holds up</b><small>Nothing to do here</small></span>
+            <span class="rscore">Fine</span>
+          </div>
+        </div>
+        <div class="report-foot">This is the shape of what lands in your inbox — yours will name the actual files and plugins.</div>
+      </aside>
+     </div>
+
+      <div class="marquee-stats rise d">
+        <div class="mstat"><b>5.0</b><span>Average rating over 67 reviews</span></div>
+        <div class="mstat"><b>15 yrs</b><span>Building with PHP and WordPress</span></div>
+        <div class="mstat"><b>94%</b><span>Projects delivered on time</span></div>
+        <div class="mstat"><b>1 yr</b><span>Free bug-fix warranty included</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAIN ============ -->
+  <section class="house">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Most businesses I talk to have had the same three experiences.</h2>
+        <p>If any of these sound familiar, the problem usually isn't your idea. It's who built it.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain">
+          <h3>The developer vanished</h3>
+          <p>Work stopped halfway, messages went unanswered, and nobody can explain what's actually in the code you paid for.</p>
+        </div>
+        <div class="pain">
+          <h3>The price kept moving</h3>
+          <p>A quote became an estimate, the estimate became hourly, and the final invoice looked nothing like the conversation you had.</p>
+        </div>
+        <div class="pain">
+          <h3>It broke after launch</h3>
+          <p>Everything worked on the demo day. Three weeks later the contact form is dead and nobody is answering support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="house-2" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Three packages. Real prices. No discovery call needed to find out what it costs.</h2>
+        <p>Every project includes the warranty, the revisions and the handover documentation. Those aren't upsells.</p>
+      </div>
+
+      <div class="tiers">
+        <article class="tier">
+          <h3>WordPress website</h3>
+          <div class="amount">₹15,000 – ₹30,000</div>
+          <div class="terms">Fixed price · 1–3 weeks</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Custom or premium theme, built to your brand</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Works properly on phones, not just shrunk down</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Contact forms and search engine basics set up</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Speed tuned before launch, not after complaints</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>A walkthrough so you can edit content yourself</li>
+          </ul>
+          <button class="btn btn-ghost-dark" onclick="openSheet()">Start with a free audit</button>
+        </article>
+
+        <article class="tier pick">
+          <span class="tier-flag">Most requested</span>
+          <h3>Shopify or WooCommerce store</h3>
+          <div class="amount">₹20,000 – ₹50,000</div>
+          <div class="terms">Fixed price · 2–5 weeks</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Full storefront with your products loaded in</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Payment gateway connected and tested with real orders</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Shipping rates, taxes and discount codes configured</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Custom design work where the theme falls short</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Training on running orders and stock day to day</li>
+          </ul>
+          <button class="btn btn-brass" onclick="openSheet()">Start with a free audit</button>
+        </article>
+
+        <article class="tier">
+          <h3>Custom PHP or Laravel build</h3>
+          <div class="amount">From ₹30,000</div>
+          <div class="terms">Quoted to scope · 3–8 weeks</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Built around how your business actually works</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Admin area with staff roles and permissions</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Connects to the tools and services you already use</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Database designed to hold up as you grow</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Deployed, documented and handed over cleanly</li>
+          </ul>
+          <button class="btn btn-ghost-dark" onclick="openSheet()">Discuss your project</button>
+        </article>
+      </div>
+
+      <div class="tier-aside">
+        <strong>Running an agency?</strong> I also work white-label behind agencies at wholesale rates, under NDA, with your branding on everything.
+        <a href="contact.html">Ask for the partner rates</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="stage" id="process" style="padding:96px 0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Four steps, and you know the price before step three.</h2>
+        <p>No long sales process. Most projects go from first message to started inside a week.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <div>
+            <h3>Tell me what's wrong, or what you want</h3>
+            <p>A few sentences is enough. You don't need to know the technical answer — describing the business problem is the useful part.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <div>
+            <h3>I send a free audit or a scope</h3>
+            <p>For an existing site, a plain-language report on what's slow, insecure or broken. For a new build, a written scope with a fixed price and a delivery date.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <div>
+            <h3>We build, and you see it as it happens</h3>
+            <p>You get a private link to watch progress. Feedback at each stage, not one reveal at the end when changes are expensive.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">4</div>
+          <div>
+            <h3>Launch, handover, and I stay reachable</h3>
+            <p>Documentation, a walkthrough, and a year of free bug fixes. You have my number after launch, not just before it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section class="house" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Some of what I've shipped.</h2>
+        <p>Client names withheld where the work was confidential.</p>
+      </div>
+      <div class="work-row">
+        <article class="work">
+          <div class="work-img"><img src="assets/work-news.svg" alt="Layout of a news platform with a featured article and sidebar stories" loading="lazy"></div>
+          <div class="work-txt">
+            <h3>A news platform publishing daily</h3>
+            <p>Custom database behind a WordPress front end so the editorial team could publish without waiting on a developer.</p>
+            <div class="stack">WordPress · PHP · jQuery · MySQL</div>
+          </div>
+        </article>
+        <article class="work">
+          <div class="work-img"><img src="assets/work-ecommerce.svg" alt="Layout of an online store showing a grid of products with prices" loading="lazy"></div>
+          <div class="work-txt">
+            <h3>A seed retailer selling online</h3>
+            <p>Full WooCommerce store with payments, coupon logic and a customer account area for repeat orders.</p>
+            <div class="stack">WooCommerce · Payment gateway · WordPress</div>
+          </div>
+        </article>
+        <article class="work">
+          <div class="work-img"><img src="assets/work-automation.svg" alt="Diagram of content sources flowing through a scheduler out to a website and social media" loading="lazy"></div>
+          <div class="work-txt">
+            <h3>An EV news site that runs itself</h3>
+            <p>Scheduled jobs pull in updates and post to social channels automatically, so the site stays current with no daily effort.</p>
+            <div class="stack">WordPress · Cron jobs · Twitter API</div>
+          </div>
+        </article>
+        <article class="work">
+          <div class="work-img"><img src="assets/work-aggregator.svg" alt="Diagram of several product feeds merging into a single unified listing" loading="lazy"></div>
+          <div class="work-txt">
+            <h3>A price comparison site</h3>
+            <p>Live retail listings pulled from a third-party API and merged with a news feed into one browsable catalogue.</p>
+            <div class="stack">WordPress · Amazon API · RSS</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section class="stage" style="padding:96px 0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Sixty-seven reviews. Every one of them five stars.</h2>
+        <p>A sample, shortened to initials where clients preferred it.</p>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <div class="rating">★★★★★</div>
+          <p>Fixed a tricky server issue on a live PHP application quickly, and explained clearly what had gone wrong.</p>
+          <footer><span class="avatar">BH</span><span>B.H. — United States</span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <div class="rating">★★★★★</div>
+          <p>Took real time to understand the request, and delivered with a level of care that stood out.</p>
+          <footer><span class="avatar">KS</span><span>K.S. — India</span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <div class="rating">★★★★★</div>
+          <p>Solid Laravel work, delivered exactly as scoped. An easy decision to hire again.</p>
+          <footer><span class="avatar">GS</span><span>G.S. — India</span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <div class="rating">★★★★★</div>
+          <p>Dependable and committed the whole way through, with clear communication at every stage.</p>
+          <footer><span class="avatar">LH</span><span>L.H. — Germany</span></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIT CTA ============ -->
+  <section class="stage audit" id="audit">
+    <div class="bulbs t"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="wrap audit-in">
+      <h2>Find out what's wrong with your site. Free.</h2>
+      <p>Send me your website address and I'll send back a report in plain English within two working days. No sales call attached.</p>
+      <div class="audit-actions">
+        <button class="btn btn-brass btn-lg" onclick="openSheet()">Get my free audit</button>
+        <a class="btn btn-wa btn-lg" href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20a%20free%20website%20audit" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm5.5-5.8c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-1.4-.6-2.9-1.9-3.8-3.4-.2-.3 0-.5.1-.6l.6-.7c.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-1 1-1.2 2.3-.8 3.6.6 1.9 2.7 5 6 6.3 1.6.7 2.9.7 3.7.4.7-.3 1.4-.9 1.6-1.5.2-.5.2-1 .1-1.1z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
+      <ul class="audit-list">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>How fast your site loads, and what's slowing it down</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Out-of-date software and the security holes it opens</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>The three fixes worth doing first, ranked by impact</li>
+      </ul>
+    </div>
+    <div class="bulbs b"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="house" id="faq">
+    <div class="wrap narrow">
+      <div class="sec-head">
+        <h2>Questions people ask before hiring me.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>How soon could you start? <span class="mark">+</span></summary>
+          <div class="ans">Usually two to three working days after we agree the scope. If your situation is urgent, say so in your first message and I'll tell you honestly whether I can meet the deadline.</div>
+        </details>
+        <details>
+          <summary>Is the price really fixed? <span class="mark">+</span></summary>
+          <div class="ans">For a defined project, yes — the number in the written scope is the number you pay. If you ask for something outside that scope mid-project, I quote it separately before doing the work. No surprise line items.</div>
+        </details>
+        <details>
+          <summary>I already have a site and it's a mess. Can you work with that? <span class="mark">+</span></summary>
+          <div class="ans">Most of my work is exactly this — stepping into someone else's code and fixing or extending it without breaking what already works. The free audit is a good place to start.</div>
+        </details>
+        <details>
+          <summary>I'm not technical. Will I be able to follow what's going on? <span class="mark">+</span></summary>
+          <div class="ans">You don't need to be. Describe the business problem and I'll handle the translation. Progress updates are written in plain language, not jargon.</div>
+        </details>
+        <details>
+          <summary>What happens if something breaks after launch? <span class="mark">+</span></summary>
+          <div class="ans">Bugs in work I delivered get fixed free for a year. Beyond that, I offer a monthly maintenance arrangement if you'd rather someone else watched over it.</div>
+        </details>
+        <details>
+          <summary>Will you sign an NDA? <span class="mark">+</span></summary>
+          <div class="ans">Yes, happily, before any details or code change hands. I work under NDA with agency clients as standard.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section class="stage close-sec">
+    <div class="wrap close-in">
+      <h2>Tell me what you're trying to build.</h2>
+      <p>Or what's already broken. Either way you'll get a straight answer about cost and timing, usually the same day.</p>
+      <div class="close-actions">
+        <button class="btn btn-brass btn-lg" onclick="openSheet()">Get a free audit</button>
+        <a class="btn btn-wa btn-lg" href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm5.5-5.8c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-1.4-.6-2.9-1.9-3.8-3.4-.2-.3 0-.5.1-.6l.6-.7c.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-1 1-1.2 2.3-.8 3.6.6 1.9 2.7 5 6 6.3 1.6.7 2.9.7 3.7.4.7-.3 1.4-.9 1.6-1.5.2-.5.2-1 .1-1.1z"/></svg>
+          WhatsApp me
+        </a>
+      </div>
+      <div class="close-contact">
+        <div class="cc">
+          <h4>Email</h4>
+          <a href="mailto:partners@example.com">partners@example.com</a>
+        </div>
+        <div class="cc">
+          <h4>Based in</h4>
+          <a href="#top" style="cursor:default;">Jodhpur, India — working worldwide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>© 2026 Backstage</div>
+    <nav>
+      <a href="#pricing">Pricing</a>
+      <a href="#work">Work</a>
+      <a href="#faq">Questions</a>
+      <a href="contact.html">Agency partners</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="stickybar">
+  <button class="btn btn-brass" onclick="openSheet()">Get a free audit</button>
+  <a class="btn btn-ghost-light" href="#pricing">Prices</a>
+</div>
+
+<a class="wa-fab" href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="Message on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm5.5-5.8c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-1.4-.6-2.9-1.9-3.8-3.4-.2-.3 0-.5.1-.6l.6-.7c.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-1 1-1.2 2.3-.8 3.6.6 1.9 2.7 5 6 6.3 1.6.7 2.9.7 3.7.4.7-.3 1.4-.9 1.6-1.5.2-.5.2-1 .1-1.1z"/></svg>
+</a>
+
+<!-- audit request -->
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet">
+    <button class="x" onclick="closeSheet()" aria-label="Close">✕</button>
+    <h3 id="sheetTitle">Get your free website audit</h3>
+    <p class="sub">Send your address and I'll email a plain-English report within two working days. Nothing to pay, and no sales call unless you ask for one.</p>
+    <form action="https://formsubmit.co/partners@example.com" method="POST">
+      <input type="hidden" name="_subject" value="Free audit request — sales page">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="Name" type="text" required>
+      </div>
+      <div>
+        <label for="f-email">Email</label>
+        <input id="f-email" name="Email" type="email" required>
+      </div>
+      <div>
+        <label for="f-site">Website address</label>
+        <input id="f-site" name="Website" type="text" placeholder="yoursite.com — leave blank if you don't have one yet">
+      </div>
+      <div>
+        <label for="f-note">What's worrying you? <span style="font-weight:400;">(optional)</span></label>
+        <textarea id="f-note" name="Details" rows="3" placeholder="For example: the site is slow, or I need an online store"></textarea>
+      </div>
+      <button type="submit" class="btn btn-brass">Send my request</button>
+      <p class="fine">Goes straight to my inbox. Never shared, never used for marketing lists.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  var ov = document.getElementById('ov');
+  var lastFocus = null;
+  function openSheet(){
+    lastFocus = document.activeElement;
+    ov.classList.add('on');
+    var f = document.getElementById('f-name');
+    if(f) f.focus();
+  }
+  function closeSheet(){
+    ov.classList.remove('on');
+    if(lastFocus) lastFocus.focus();
+  }
+  ov.addEventListener('click', function(e){ if(e.target === ov) closeSheet(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && ov.classList.contains('on')) closeSheet(); });
+
+  // open the audit sheet once, after the visitor has read a good part of the page
+  (function(){
+    var fired = false;
+    window.addEventListener('scroll', function(){
+      if(fired) return;
+      var seen = window.scrollY + window.innerHeight;
+      if(seen > document.documentElement.scrollHeight * 0.55){
+        fired = true;
+        try{ if(sessionStorage.getItem('bsAuditSeen')) return; sessionStorage.setItem('bsAuditSeen','1'); }catch(e){}
+        openSheet();
+      }
+    }, {passive:true});
+  })();
+
+  // close one open FAQ when another opens
+  document.querySelectorAll('.faq details').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if(!d.open) return;
+      document.querySelectorAll('.faq details[open]').forEach(function(o){ if(o !== d) o.open = false; });
+    });
+  });
+</script>
+</body>
+</html>
