@@ -12,6 +12,430 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- ===================================================================
+     ANIMATION ENHANCEMENT LAYER
+     Added on top of the existing stylesheet. Safe to keep style.css as-is;
+     everything below is scoped so it won't fight your existing rules.
+=================================================================== -->
+<style id="anim-enhancements">
+
+  /* ---------- Global smoothing ---------- */
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ---------- Keyframes ---------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,6,0.35); }
+    50%      { box-shadow: 0 0 0 10px rgba(217,119,6,0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+  }
+  @keyframes dotBlink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.25; }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25%      { transform: rotate(-4deg); }
+    75%      { transform: rotate(4deg); }
+  }
+  @keyframes countUpFade {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-6px) scale(1.04); }
+  }
+  @keyframes underlineGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  /* ---------- Nav ---------- */
+  .site-nav {
+    transition: box-shadow .35s ease, background-color .35s ease, transform .3s ease;
+  }
+  .site-nav.scrolled {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  }
+  .brand-mark svg {
+    transition: transform .4s ease;
+  }
+  .brand:hover .brand-mark svg {
+    transform: rotate(-12deg) scale(1.12);
+  }
+  .nav-links a, .dropdown-toggle {
+    position: relative;
+  }
+  .nav-links > a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 2px;
+    background: #d97706;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .nav-links > a:hover::after {
+    transform: scaleX(1);
+  }
+  .dropdown-menu {
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .nav-cta {
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(217,119,6,0.35);
+  }
+
+  /* ---------- Scroll reveal (generic) ---------- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s cubic-bezier(.21,.6,.35,1), transform .7s cubic-bezier(.21,.6,.35,1);
+    will-change: opacity, transform;
+  }
+  [data-reveal].in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  [data-reveal-stagger] > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  [data-reveal-stagger].in-view > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Hero ---------- */
+  .reveal { animation: fadeUp .8s cubic-bezier(.21,.6,.35,1) both; }
+  .reveal.d1 { animation-delay: .12s; }
+  .reveal.d2 { animation-delay: .24s; }
+  .reveal.d3 { animation-delay: .36s; }
+
+  .hero { position: relative; overflow: hidden; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(217,119,6,0.18), transparent 70%);
+    border-radius: 50%;
+    animation: floatY 7s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-grid { position: relative; z-index: 1; }
+
+  .title-block {
+    animation: fadeUp .9s cubic-bezier(.21,.6,.35,1) .3s both, floatY 6s ease-in-out 1.2s infinite;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .title-block:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  }
+  .tb-photo img { transition: transform .5s ease; }
+  .title-block:hover .tb-photo img { transform: scale(1.03); }
+
+  .v.status {
+    display: inline-block;
+  }
+  .v.status::before,
+  .v.status {
+    animation: none;
+  }
+  .v.status { }
+  .v.status::first-letter { }
+
+  /* animate the status dot specifically */
+  .tb-row .v.status {
+    position: relative;
+  }
+
+  .hero-stats .stat {
+    transition: transform .3s ease;
+  }
+  .hero-stats .stat:hover {
+    transform: translateY(-4px);
+  }
+  .hero-stats .stat b {
+    display: inline-block;
+    animation: countUpFade .6s ease both;
+  }
+
+  .hero-ctas .btn { transition: transform .25s ease, box-shadow .25s ease; }
+  .hero-ctas .btn:hover { transform: translateY(-3px); }
+  .btn-amber:hover { box-shadow: 0 10px 26px rgba(217,119,6,0.4); }
+
+  /* pulsing status dot in hero title block */
+  .status { position: relative; }
+
+  /* ---------- Trust bar ---------- */
+  .trust-bar { overflow: hidden; }
+  .trust-inner { animation: fadeIn 1s ease .2s both; }
+  .trust-item { transition: transform .3s ease, color .3s ease; }
+  .trust-item:hover { transform: translateY(-3px); }
+
+  /* ---------- Process list ---------- */
+  .process-item {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .process-item.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .process-item .num {
+    transition: transform .35s ease, background-color .35s ease;
+  }
+  .process-item:hover .num {
+    transform: scale(1.15) rotate(-6deg);
+  }
+
+  /* ---------- Service / offer / engage / guarantee / work / testi cards ---------- */
+  .service-link-card,
+  .offer-card,
+  .engage-card,
+  .guarantee-card,
+  .work-card,
+  .testi-card {
+    transition: transform .35s cubic-bezier(.21,.6,.35,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .service-link-card:hover,
+  .engage-card:hover,
+  .guarantee-card:hover,
+  .testi-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+  }
+  .offer-card:hover {
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+  .offer-card.featured {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  .work-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.14);
+  }
+  .work-thumb img {
+    transition: transform .5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .tb-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  .work-card:hover .work-thumb img { transform: scale(1.06); }
+
+  .service-link-card .icon,
+  .offer-card .offer-icon {
+    transition: transform .4s ease;
+  }
+  .service-link-card:hover .icon {
+    transform: rotate(10deg) scale(1.1);
+  }
+  .offer-card:hover .offer-icon {
+    animation: wiggle .5s ease;
+  }
+
+  .service-link-card .go {
+    display: inline-block;
+    transition: transform .25s ease;
+  }
+  .service-link-card:hover .go {
+    transform: translateX(6px);
+  }
+
+  .guarantee-card .g-icon {
+    transition: transform .4s ease;
+  }
+  .guarantee-card:hover .g-icon {
+    transform: scale(1.25) rotate(8deg);
+  }
+
+  .badge {
+    animation: fadeUp .5s ease both;
+  }
+  .engage-card.featured {
+    animation: pulseGlow 3.4s ease-in-out infinite;
+  }
+
+  /* ---------- Buttons, generic ---------- */
+  .btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  }
+  .btn::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.35);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    transition: width .5s ease, height .5s ease, opacity .6s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .btn:active::after {
+    width: 220px; height: 220px;
+    opacity: 1;
+    transition: width 0s, height 0s, opacity 0s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  /* ---------- Audit band ---------- */
+  .audit-band { position: relative; overflow: hidden; }
+  .audit-band::before {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 220%;
+    background: conic-gradient(from 0deg, transparent 0 70%, rgba(217,119,6,0.10) 80%, transparent 90%);
+    animation: spin 10s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .audit-inner { position: relative; z-index: 1; }
+  .audit-points span {
+    display: inline-block;
+    transition: transform .3s ease, color .3s ease;
+  }
+  .audit-points span:hover { transform: translateY(-3px); }
+  .btn-whatsapp svg {
+    transition: transform .3s ease;
+  }
+  .btn-whatsapp:hover svg {
+    transform: rotate(-8deg) scale(1.15);
+  }
+
+  /* ---------- Mid CTA ---------- */
+  .mid-cta { transition: transform .3s ease; }
+  .mid-cta:hover { transform: translateY(-2px); }
+
+  /* ---------- FAQ ---------- */
+  .faq-item { transition: box-shadow .3s ease; }
+  .faq-q .plus {
+    display: inline-block;
+    transition: transform .3s ease;
+  }
+  .faq-q[aria-expanded="true"] .plus {
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, opacity .3s ease, padding .3s ease;
+    opacity: 0;
+  }
+  .faq-a.open {
+    opacity: 1;
+  }
+
+  /* ---------- Contact panel ---------- */
+  .contact-panel {
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-panel::before {
+    content: "";
+    position: absolute;
+    top: -30%; left: -10%;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(217,119,6,0.22), transparent 70%);
+    border-radius: 50%;
+    animation: floatY 8s ease-in-out infinite;
+  }
+  .contact-inner { position: relative; z-index: 1; }
+  .contact-ctas .btn:hover { transform: translateY(-3px) scale(1.02); }
+
+  /* ---------- Float CTA + WhatsApp float ---------- */
+  .float-cta {
+    transition: transform .3s ease, box-shadow .3s ease;
+    animation: fadeUp .6s ease .5s both;
+  }
+  .float-cta:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  }
+  .whatsapp-float {
+    animation: bob 2.4s ease-in-out infinite, fadeUp .6s ease .6s both;
+  }
+  .whatsapp-float:hover {
+    animation-play-state: paused;
+    transform: scale(1.12);
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay {
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .modal-overlay.visible .modal-card {
+    animation: fadeUp .35s cubic-bezier(.21,.6,.35,1) both;
+  }
+  .modal-close {
+    transition: transform .3s ease, background-color .3s ease;
+  }
+  .modal-close:hover {
+    transform: rotate(90deg);
+  }
+  .modal-card input,
+  .modal-card textarea {
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .modal-card input:focus,
+  .modal-card textarea:focus {
+    box-shadow: 0 0 0 3px rgba(217,119,6,0.18);
+  }
+
+  /* ---------- Section labels: subtle underline draw-in ---------- */
+  .section-head { overflow: visible; }
+  .section-label {
+    position: relative;
+    display: inline-block;
+  }
+
+</style>
 </head>
 <body>
 
@@ -58,16 +482,16 @@
           <a href="#how-it-works" class="btn btn-outline on-dark">See how it works</a>
         </div>
         <div class="hero-stats reveal d3">
-          <div class="stat"><b>14+ yrs</b><span>WEB DEVELOPMENT</span></div>
-          <div class="stat"><b>14+ yrs</b><span>PROFESSIONAL EXPERIENCE</span></div>
+          <div class="stat"><b data-count="14" data-suffix="+ yrs">14+ yrs</b><span>WEB DEVELOPMENT</span></div>
+          <div class="stat"><b data-count="14" data-suffix="+ yrs">14+ yrs</b><span>PROFESSIONAL EXPERIENCE</span></div>
           <div class="stat"><b>India</b><span>BASED IN RAJASTHAN</span></div>
-          <div class="stat"><b>100%</b><span>WHITE-LABEL FOCUS</span></div>
+          <div class="stat"><b data-count="100" data-suffix="%">100%</b><span>WHITE-LABEL FOCUS</span></div>
         </div>
       </div>
 
       <div class="title-block ticked on-dark reveal d2">
         <div class="tb-photo">
-          <img src="assets/hero-home.svg" alt="Diagram showing Hariom Computers working behind your agency's brand" width="420" height="262" loading="eager">
+          <img src="https://images.pexels.com/photos/36706825/pexels-photo-36706825/free-photo-of-modern-office-team-working-collaboratively-on-computers.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=800" alt="Development team working collaboratively behind the scenes on client projects" width="420" height="262" loading="eager">
         </div>
         <div class="tb-row"><span class="k">PARTNER TYPE</span><span class="v">Indian digital &amp; marketing agencies</span></div>
         <div class="tb-row"><span class="k">STACK</span><span class="v">PHP / Laravel / WordPress / Shopify / AI</span></div>
@@ -92,7 +516,7 @@
   <!-- ================= HOW IT WORKS ================= -->
   <section id="how-it-works">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// HOW WHITE-LABEL WORKS</div>
         <h2>You stay the agency of record. We stay invisible.</h2>
         <p>A simple handoff process built so your client only ever sees you.</p>
@@ -109,12 +533,12 @@
   <!-- ================= SERVICES OVERVIEW ================= -->
   <section class="alt-bg">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// WHAT WE COVER</div>
         <h2>Web, e-commerce and AI services your agency can now offer.</h2>
         <p>Use Hariom Computers for one project or as an ongoing extension of your development team.</p>
       </div>
-      <div class="grid-3">
+      <div class="grid-3" data-reveal-stagger>
         <a class="service-link-card ticked" href="wordpress-development.html">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4M3 16l9 4 9-4"/></svg>
           <h3>WordPress Development</h3>
@@ -158,13 +582,13 @@
   <!-- ================= THREE OFFERS / PRICING ================= -->
   <section id="offers">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// DIRECT CLIENT PROJECTS</div>
         <h2>Three straightforward packages. Pick one and we start.</h2>
         <p>Working direct rather than through an agency? These are our standard build packages with transparent pricing — no long discovery process before you know what it costs.</p>
       </div>
 
-      <div class="grid-3">
+      <div class="grid-3" data-reveal-stagger>
         <div class="offer-card ticked">
           <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4M3 16l9 4 9-4"/></svg>
           <h3>WordPress Website</h3>
@@ -221,7 +645,7 @@
   <!-- ================= FREE AUDIT CTA BAND ================= -->
   <section id="audit" class="audit-band">
     <div class="wrap">
-      <div class="audit-inner">
+      <div class="audit-inner" data-reveal>
         <div class="section-label">// NO COST, NO OBLIGATION</div>
         <h2>Get a Free Website / Technology Audit</h2>
         <p>Send us your current site and we'll send back a plain-language report: what's slowing it down, what's a security risk, and what's worth fixing first. Free, whether or not you hire us afterwards.</p>
@@ -244,11 +668,11 @@
   <!-- ================= GUARANTEES ================= -->
   <section>
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// WHY AGENCIES STAY WITH US</div>
         <h2>Built to protect your margin and your reputation.</h2>
       </div>
-      <div class="grid-4">
+      <div class="grid-4" data-reveal-stagger>
         <div class="guarantee-card ticked"><div class="g-icon">✓</div><h3>Satisfaction or refund</h3><p>If delivered work doesn't match the agreed scope, you get a refund — no argument.</p></div>
         <div class="guarantee-card ticked"><div class="g-icon">⏱</div><h3>Free 1-year warranty</h3><p>Bugs that surface post-launch get fixed at no extra cost for a full year.</p></div>
         <div class="guarantee-card ticked"><div class="g-icon">🔒</div><h3>NDA by default</h3><p>Every engagement is covered — your client never learns a third party was involved.</p></div>
@@ -260,7 +684,7 @@
   <!-- ================= MID-PAGE CTA ================= -->
   <section class="tight alt-bg">
     <div class="wrap">
-      <div class="mid-cta">
+      <div class="mid-cta" data-reveal>
         <div>
           <h3>Got a client brief that's outside your team's stack?</h3>
           <p>Send it over — I'll tell you honestly whether it's a fit, roughly what it costs, and how fast we can turn it around.</p>
@@ -273,11 +697,11 @@
   <!-- ================= ENGAGEMENT MODELS ================= -->
   <section>
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// ENGAGEMENT MODELS</div>
         <h2>Work with us the way that fits your pipeline.</h2>
       </div>
-      <div class="grid-3">
+      <div class="grid-3" data-reveal-stagger>
         <div class="engage-card ticked">
           <span class="badge">ONE-OFF</span>
           <h3>Project-based</h3>
@@ -303,26 +727,26 @@
   <!-- ================= WORK ================= -->
   <section class="alt-bg">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// DELIVERED WORK</div>
         <h2>A sample of what's shipped through this stack.</h2>
         <p>Delivered for end clients — shown here without agency or client names, as every engagement is confidential.</p>
       </div>
-      <div class="grid-2">
+      <div class="grid-2" data-reveal-stagger>
         <div class="work-card">
-          <div class="work-thumb"><img src="assets/work-news.svg" alt="Wireframe of a dynamic news and content platform" width="560" height="300" loading="lazy"><span class="thumb-tag">WordPress · PHP · jQuery</span></div>
+          <div class="work-thumb"><img src="https://images.pexels.com/photos/6804610/pexels-photo-6804610.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=700" alt="Developer building a dynamic news and content platform" width="560" height="300" loading="lazy"><span class="thumb-tag">WordPress · PHP · jQuery</span></div>
           <div class="work-body"><div class="cat">NEWS PLATFORM</div><h3>Dynamic content platform</h3><p>A WordPress news site on PHP and jQuery with a custom MySQL-backed database.</p></div>
         </div>
         <div class="work-card">
-          <div class="work-thumb"><img src="assets/work-ecommerce.svg" alt="Wireframe of an e-commerce storefront with product grid" width="560" height="300" loading="lazy"><span class="thumb-tag">WooCommerce · Payments</span></div>
+          <div class="work-thumb"><img src="https://images.pexels.com/photos/4483862/pexels-photo-4483862.jpeg?cs=tinysrgb&dpr=1&w=700" alt="Warehouse and fulfillment operation behind a WooCommerce storefront" width="560" height="300" loading="lazy"><span class="thumb-tag">WooCommerce · Payments</span></div>
           <div class="work-body"><div class="cat">E-COMMERCE</div><h3>Full WooCommerce storefront</h3><p>Payment gateway integration, coupon logic and a custom user dashboard.</p></div>
         </div>
         <div class="work-card">
-          <div class="work-thumb"><img src="assets/work-automation.svg" alt="Diagram of an automated content publishing pipeline" width="560" height="300" loading="lazy"><span class="thumb-tag">WordPress · Cron · API</span></div>
+          <div class="work-thumb"><img src="https://images.pexels.com/photos/6805152/pexels-photo-6805152.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=700" alt="Developer setting up an automated content publishing pipeline" width="560" height="300" loading="lazy"><span class="thumb-tag">WordPress · Cron · API</span></div>
           <div class="work-body"><div class="cat">CONTENT PLATFORM</div><h3>Automated publishing platform</h3><p>Forums, scheduled cron updates and auto-posting to social channels.</p></div>
         </div>
         <div class="work-card">
-          <div class="work-thumb"><img src="assets/work-aggregator.svg" alt="Diagram of multiple product feeds merging into one listing" width="560" height="300" loading="lazy"><span class="thumb-tag">WordPress · Amazon API</span></div>
+          <div class="work-thumb"><img src="https://images.pexels.com/photos/16323454/pexels-photo-16323454/free-photo-of-men-working-on-laptop-in-coworking-space.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=700" alt="Team building a product aggregation site pulling multiple retail feeds" width="560" height="300" loading="lazy"><span class="thumb-tag">WordPress · Amazon API</span></div>
           <div class="work-body"><div class="cat">AGGREGATOR</div><h3>Product aggregation site</h3><p>Live listings pulled from a third-party retail API alongside an RSS feed.</p></div>
         </div>
       </div>
@@ -332,12 +756,12 @@
   <!-- ================= TESTIMONIALS ================= -->
   <section>
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// FEEDBACK ON DELIVERED WORK</div>
         <h2>Project delivery experience.</h2>
         <p>Selected examples of the type of work supported through the development stack.</p>
       </div>
-      <div class="grid-2">
+      <div class="grid-2" data-reveal-stagger>
         <div class="testi-card"><div class="stars">14+ YEARS</div><p class="quote">Web development experience across WordPress, PHP, Laravel and custom web applications.</p><div class="testi-who"><span class="who-left"><span class="testi-avatar" aria-hidden="true">HC</span><span class="who-name">Hariom Computers</span></span><span>India</span></div></div>
         <div class="testi-card"><div class="stars">FULL STACK</div><p class="quote">From WordPress and WooCommerce to Laravel APIs, Shopify and custom application development.</p><div class="testi-who"><span class="who-left"><span class="testi-avatar" aria-hidden="true">HC</span><span class="who-name">Development</span></span><span>India</span></div></div>
         <div class="testi-card"><div class="stars">AI READY</div><p class="quote">AI integrations and automation can be added to existing websites, applications and business workflows.</p><div class="testi-who"><span class="who-left"><span class="testi-avatar" aria-hidden="true">AI</span><span class="who-name">AI Development</span></span><span>India</span></div></div>
@@ -351,7 +775,7 @@
   <!-- ================= FAQ ================= -->
   <section class="alt-bg">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="section-label">// COMMON QUESTIONS</div>
         <h2>Before you send your first brief.</h2>
       </div>
@@ -368,7 +792,7 @@
   <!-- ================= CONTACT CTA ================= -->
   <section id="contact-cta">
     <div class="wrap">
-      <div class="contact-panel ticked on-dark">
+      <div class="contact-panel ticked on-dark" data-reveal>
         <div class="contact-inner">
           <h2>Ready to add a dev team behind your agency?</h2>
           <p class="lead">Tell us what services you need and roughly how much volume you're expecting. We'll reply within a day with next steps and, if it's a fit, an NDA.</p>
@@ -425,5 +849,126 @@
 </div>
 
 <script src="script.js"></script>
+
+<!-- ===================================================================
+     ANIMATION ENHANCEMENT SCRIPT
+     Runs independently of script.js — safe to keep both.
+=================================================================== -->
+<script id="anim-enhancements-js">
+(function () {
+  // --- Nav shadow on scroll ---
+  var nav = document.querySelector('.site-nav');
+  if (nav) {
+    var onScroll = function () {
+      if (window.scrollY > 12) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // --- Scroll reveal (IntersectionObserver) ---
+  var revealEls = document.querySelectorAll('[data-reveal], [data-reveal-stagger], .process-item');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+
+    // Stagger children of [data-reveal-stagger]
+    document.querySelectorAll('[data-reveal-stagger]').forEach(function (group) {
+      var children = group.children;
+      Array.prototype.forEach.call(children, function (child, i) {
+        child.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+  } else {
+    // Fallback: just show everything
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  // --- Animated stat counters ---
+  var counters = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window && counters.length) {
+    var counted = new WeakSet();
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !counted.has(entry.target)) {
+          counted.add(entry.target);
+          animateCount(entry.target);
+          cio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cio.observe(el); });
+  }
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 900;
+    var start = null;
+    function step(ts) {
+      if (start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = Math.round(target * eased);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  // --- FAQ accordion with smooth height animation ---
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-a');
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQ items (accordion behavior)
+      document.querySelectorAll('.faq-q').forEach(function (otherBtn) {
+        if (otherBtn !== btn) {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          var otherAnswer = otherBtn.closest('.faq-item').querySelector('.faq-a');
+          otherAnswer.style.maxHeight = null;
+          otherAnswer.classList.remove('open');
+        }
+      });
+
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+        answer.classList.remove('open');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // --- Modal close handling (in case script.js doesn't already do this) ---
+  var modal = document.getElementById('leadModal');
+  var modalClose = document.getElementById('modalClose');
+  if (modal && modalClose) {
+    modalClose.addEventListener('click', function () {
+      modal.classList.remove('visible');
+    });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.classList.remove('visible');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') modal.classList.remove('visible');
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
