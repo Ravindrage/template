@@ -468,3 +468,15 @@ footer{padding:40px 0; border-top:1px solid var(--line); background:var(--bg-0);
 .kpi span{font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--ink-dim);}
 .work-card .tag-row{margin-top:14px;}
 nav.nav-links > a[aria-current="page"]{color:var(--ink); box-shadow:inset 0 -2px 0 var(--amber);}
+
+
+/* ---------- Sales additions ---------- */
+.card.pain{text-decoration:none; display:block; border-top:3px solid var(--amber); transition:transform .12s ease, border-color .15s ease;}
+.card.pain:hover{transform:translateY(-2px); border-color:var(--amber-dark);}
+.card.pain h3{font-size:1.08rem;}
+.engage-card .price{font-size:1.75rem; font-weight:700; color:var(--ink); margin:6px 0 2px;}
+.engage-card .price-meta{font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--ink-faint); margin-bottom:14px;}
+.engage-card .btn{margin-top:20px; width:100%; justify-content:center;}
+.service-link-card .more{display:inline-block; margin-top:12px; color:var(--amber); font-weight:600; font-size:0.9rem;}
+.grid-4 .card.pain p{font-size:0.9rem;}
+section.tight{padding:64px 0;}
