@@ -3,452 +3,566 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guruom Computers — Websites & Web Apps That Bring In Customers</title>
-<meta name="description" content="Fixed-price WordPress, WooCommerce, Shopify and Laravel development from a developer with 14+ years of experience, a 5.0 rating across 67 reviews and a 1-year free warranty. Get a free quote in 24 hours.">
-<meta property="og:title" content="Guruom Computers — Websites & Web Apps That Bring In Customers">
-<meta property="og:description" content="Fixed-price web development with a 1-year free warranty. Free quote in 24 hours.">
+
+<title>Ravindra Gehlot | Guruom Computers — Web Development & IT Solutions</title>
+
+<meta name="description" content="Ravindra Gehlot — Web Developer with 14+ years of experience. WordPress, WooCommerce, Shopify, Laravel and custom web applications. Book a free 30-minute diagnostic call.">
+
+<meta name="author" content="Ravindra Gehlot">
+
+<meta property="og:title" content="Ravindra Gehlot | Guruom Computers">
+<meta property="og:description" content="Professional website and web application development. Book a free 30-minute diagnostic call.">
 <meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
+
 <script src="https://cdn.pagesense.io/js/940263989/029da1f9f2ae4c6389a0a87a177a8641.js"></script>
-<!-- ===================================================================
-     ANIMATION ENHANCEMENT LAYER
-     Added on top of the existing stylesheet. Safe to keep style.css as-is;
-     everything below is scoped so it won't fight your existing rules.
-=================================================================== -->
-<style id="anim-enhancements">
 
-  /* ---------- Global smoothing ---------- */
-  html { scroll-behavior: smooth; }
+<style>
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-      scroll-behavior: auto !important;
-    }
+/* GLOBAL */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,6,.35); }
+  50% { box-shadow: 0 0 0 10px rgba(217,119,6,0); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
+
+@keyframes countUpFade {
+  from { opacity: 0; transform: scale(.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.04); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* NAVIGATION */
+
+.site-nav {
+  transition: box-shadow .35s ease, background-color .35s ease;
+}
+
+.site-nav.scrolled {
+  box-shadow: 0 6px 24px rgba(0,0,0,.12);
+}
+
+.brand-mark svg {
+  transition: transform .4s ease;
+}
+
+.brand:hover .brand-mark svg {
+  transform: rotate(-12deg) scale(1.12);
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: #d97706;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.nav-links > a:hover::after {
+  transform: scaleX(1);
+}
+
+.dropdown-menu {
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.nav-cta {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(217,119,6,.35);
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(217,119,6,.18), transparent 70%);
+  border-radius: 50%;
+  animation: floatY 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.reveal {
+  animation: fadeUp .8s cubic-bezier(.21,.6,.35,1) both;
+}
+
+.reveal.d1 { animation-delay: .12s; }
+.reveal.d2 { animation-delay: .24s; }
+.reveal.d3 { animation-delay: .36s; }
+
+/* PERSONAL BRAND */
+
+.hero .eyebrow {
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  max-width: 850px;
+}
+
+.hero-sub {
+  max-width: 680px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-ctas .btn {
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-ctas .btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-amber:hover {
+  box-shadow: 0 10px 26px rgba(217,119,6,.4);
+}
+
+/* DIAGNOSTIC BUTTON */
+
+.btn-diagnostic {
+  background: #ffffff;
+  color: #172235;
+  border: 1px solid rgba(255,255,255,.5);
+  font-weight: 700;
+}
+
+.btn-diagnostic:hover {
+  background: #fef3c7;
+  color: #92400e;
+  box-shadow: 0 10px 26px rgba(217,119,6,.3);
+}
+
+.diagnostic-note {
+  font-size: 13px;
+  opacity: .85;
+  margin-top: 14px;
+}
+
+/* TITLE BLOCK */
+
+.title-block {
+  animation: fadeUp .9s cubic-bezier(.21,.6,.35,1) .3s both;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.title-block:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.18);
+}
+
+.tb-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* STATS */
+
+.hero-stats .stat {
+  transition: transform .3s ease;
+}
+
+.hero-stats .stat:hover {
+  transform: translateY(-4px);
+}
+
+.hero-stats .stat b {
+  display: inline-block;
+  animation: countUpFade .6s ease both;
+}
+
+/* TRUST BAR */
+
+.trust-inner {
+  animation: fadeIn 1s ease .2s both;
+}
+
+.trust-item {
+  transition: transform .3s ease;
+}
+
+.trust-item:hover {
+  transform: translateY(-3px);
+}
+
+/* SCROLL REVEAL */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+[data-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+[data-reveal-stagger].in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PROCESS */
+
+.process-item {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.process-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.process-item .num {
+  transition: transform .35s ease;
+}
+
+.process-item:hover .num {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* CARDS */
+
+.service-link-card,
+.offer-card,
+.engage-card,
+.guarantee-card,
+.work-card,
+.testi-card {
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.service-link-card:hover,
+.engage-card:hover,
+.guarantee-card:hover,
+.testi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.12);
+}
+
+.offer-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+.engage-card.featured {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.14);
+}
+
+.work-thumb img {
+  transition: transform .5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-card:hover .work-thumb img {
+  transform: scale(1.06);
+}
+
+.service-link-card .icon,
+.offer-card .offer-icon {
+  transition: transform .4s ease;
+}
+
+.service-link-card:hover .icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.offer-card:hover .offer-icon {
+  animation: wiggle .5s ease;
+}
+
+.service-link-card .go {
+  display: inline-block;
+  transition: transform .25s ease;
+}
+
+.service-link-card:hover .go {
+  transform: translateX(6px);
+}
+
+.badge {
+  animation: fadeUp .5s ease both;
+}
+
+/* BUTTONS */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* AUDIT */
+
+.audit-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.audit-band::before {
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto -10%;
+  height: 220%;
+  background: conic-gradient(from 0deg, transparent 0 70%, rgba(217,119,6,.1) 80%, transparent 90%);
+  animation: spin 10s linear infinite;
+  pointer-events: none;
+}
+
+.audit-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.audit-points span {
+  display: inline-block;
+  transition: transform .3s ease;
+}
+
+.audit-points span:hover {
+  transform: translateY(-3px);
+}
+
+/* FAQ */
+
+.faq-item {
+  transition: box-shadow .3s ease;
+}
+
+.faq-q .plus {
+  display: inline-block;
+  transition: transform .3s ease;
+}
+
+.faq-q[aria-expanded="true"] .plus {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, opacity .3s ease;
+  opacity: 0;
+}
+
+.faq-a.open {
+  opacity: 1;
+}
+
+/* CONTACT */
+
+.contact-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(217,119,6,.22), transparent 70%);
+  border-radius: 50%;
+  animation: floatY 8s ease-in-out infinite;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* FLOATING BUTTONS */
+
+.float-cta {
+  transition: transform .3s ease, box-shadow .3s ease;
+  animation: fadeUp .6s ease .5s both;
+}
+
+.float-cta:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+
+.whatsapp-float {
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.modal-overlay.visible .modal-card {
+  animation: fadeUp .35s ease both;
+}
+
+.modal-close {
+  transition: transform .3s ease;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.modal-card input,
+.modal-card textarea {
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.modal-card input:focus,
+.modal-card textarea:focus {
+  box-shadow: 0 0 0 3px rgba(217,119,6,.18);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  /* ---------- Keyframes ---------- */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  @keyframes floatY {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-8px); }
-  }
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,6,0.35); }
-    50%      { box-shadow: 0 0 0 10px rgba(217,119,6,0); }
-  }
-  @keyframes shimmer {
-    0%   { background-position: -400px 0; }
-    100% { background-position: 400px 0; }
-  }
-  @keyframes dotBlink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0.25; }
-  }
-  @keyframes wiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25%      { transform: rotate(-4deg); }
-    75%      { transform: rotate(4deg); }
-  }
-  @keyframes countUpFade {
-    from { opacity: 0; transform: scale(0.85); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50%      { transform: translateY(-6px) scale(1.04); }
-  }
-  @keyframes underlineGrow {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
-  }
-
-  /* ---------- Nav ---------- */
-  .site-nav {
-    transition: box-shadow .35s ease, background-color .35s ease, transform .3s ease;
-  }
-  .site-nav.scrolled {
-    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-  }
-  .brand-mark svg {
-    transition: transform .4s ease;
-  }
-  .brand:hover .brand-mark svg {
-    transform: rotate(-12deg) scale(1.12);
-  }
-  .nav-links a, .dropdown-toggle {
-    position: relative;
-  }
-  .nav-links > a::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -4px;
-    height: 2px;
-    background: #d97706;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .25s ease;
-  }
-  .nav-links > a:hover::after {
-    transform: scaleX(1);
-  }
-  .dropdown-menu {
-    transition: opacity .2s ease, transform .2s ease;
-  }
-  .nav-cta {
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(217,119,6,0.35);
-  }
-
-  /* ---------- Scroll reveal (generic) ---------- */
-  [data-reveal] {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .7s cubic-bezier(.21,.6,.35,1), transform .7s cubic-bezier(.21,.6,.35,1);
-    will-change: opacity, transform;
-  }
-  [data-reveal].in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  [data-reveal-stagger] > * {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .6s ease, transform .6s ease;
-  }
-  [data-reveal-stagger].in-view > * {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ---------- Hero ---------- */
-  .reveal { animation: fadeUp .8s cubic-bezier(.21,.6,.35,1) both; }
-  .reveal.d1 { animation-delay: .12s; }
-  .reveal.d2 { animation-delay: .24s; }
-  .reveal.d3 { animation-delay: .36s; }
-
-  .hero { position: relative; overflow: hidden; }
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: -20%; right: -10%;
-    width: 480px; height: 480px;
-    background: radial-gradient(circle, rgba(217,119,6,0.18), transparent 70%);
-    border-radius: 50%;
-    animation: floatY 7s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-grid { position: relative; z-index: 1; }
-
-  .title-block {
-    animation: fadeUp .9s cubic-bezier(.21,.6,.35,1) .3s both, floatY 6s ease-in-out 1.2s infinite;
-    transition: transform .35s ease, box-shadow .35s ease;
-  }
-  .title-block:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-  }
-  .tb-photo img { transition: transform .5s ease; }
-  .title-block:hover .tb-photo img { transform: scale(1.03); }
-
-  .v.status {
-    display: inline-block;
-  }
-  .v.status::before,
-  .v.status {
-    animation: none;
-  }
-  .v.status { }
-  .v.status::first-letter { }
-
-  /* animate the status dot specifically */
-  .tb-row .v.status {
-    position: relative;
-  }
-
-  .hero-stats .stat {
-    transition: transform .3s ease;
-  }
-  .hero-stats .stat:hover {
-    transform: translateY(-4px);
-  }
-  .hero-stats .stat b {
-    display: inline-block;
-    animation: countUpFade .6s ease both;
-  }
-
-  .hero-ctas .btn { transition: transform .25s ease, box-shadow .25s ease; }
-  .hero-ctas .btn:hover { transform: translateY(-3px); }
-  .btn-amber:hover { box-shadow: 0 10px 26px rgba(217,119,6,0.4); }
-
-  /* pulsing status dot in hero title block */
-  .status { position: relative; }
-
-  /* ---------- Trust bar ---------- */
-  .trust-bar { overflow: hidden; }
-  .trust-inner { animation: fadeIn 1s ease .2s both; }
-  .trust-item { transition: transform .3s ease, color .3s ease; }
-  .trust-item:hover { transform: translateY(-3px); }
-
-  /* ---------- Process list ---------- */
-  .process-item {
-    opacity: 0;
-    transform: translateX(-24px);
-    transition: opacity .6s ease, transform .6s ease;
-  }
-  .process-item.in-view {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .process-item .num {
-    transition: transform .35s ease, background-color .35s ease;
-  }
-  .process-item:hover .num {
-    transform: scale(1.15) rotate(-6deg);
-  }
-
-  /* ---------- Service / offer / engage / guarantee / work / testi cards ---------- */
-  .service-link-card,
-  .offer-card,
-  .engage-card,
-  .guarantee-card,
-  .work-card,
-  .testi-card {
-    transition: transform .35s cubic-bezier(.21,.6,.35,1), box-shadow .35s ease, border-color .35s ease;
-  }
-  .service-link-card:hover,
-  .engage-card:hover,
-  .guarantee-card:hover,
-  .testi-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-  }
-  .offer-card:hover {
-    transform: translateY(-10px) scale(1.015);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  }
-  .offer-card.featured {
-    animation: pulseGlow 3s ease-in-out infinite;
-  }
-  .work-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 30px rgba(0,0,0,0.14);
-  }
-  .work-thumb img {
-    transition: transform .5s ease;
+  .hero-ctas .btn {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    box-sizing: border-box;
   }
-  .tb-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-  }
-  .work-card:hover .work-thumb img { transform: scale(1.06); }
-
-  .service-link-card .icon,
-  .offer-card .offer-icon {
-    transition: transform .4s ease;
-  }
-  .service-link-card:hover .icon {
-    transform: rotate(10deg) scale(1.1);
-  }
-  .offer-card:hover .offer-icon {
-    animation: wiggle .5s ease;
-  }
-
-  .service-link-card .go {
-    display: inline-block;
-    transition: transform .25s ease;
-  }
-  .service-link-card:hover .go {
-    transform: translateX(6px);
-  }
-
-  .guarantee-card .g-icon {
-    transition: transform .4s ease;
-  }
-  .guarantee-card:hover .g-icon {
-    transform: scale(1.25) rotate(8deg);
-  }
-
-  .badge {
-    animation: fadeUp .5s ease both;
-  }
-  .engage-card.featured {
-    animation: pulseGlow 3.4s ease-in-out infinite;
-  }
-
-  /* ---------- Buttons, generic ---------- */
-  .btn {
-    position: relative;
-    overflow: hidden;
-    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
-  }
-  .btn::after {
-    content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 0; height: 0;
-    background: rgba(255,255,255,0.35);
-    border-radius: 50%;
-    transform: translate(-50%,-50%);
-    transition: width .5s ease, height .5s ease, opacity .6s ease;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .btn:active::after {
-    width: 220px; height: 220px;
-    opacity: 1;
-    transition: width 0s, height 0s, opacity 0s;
-  }
-  .btn:hover { transform: translateY(-2px); }
-
-  /* ---------- Audit band ---------- */
-  .audit-band { position: relative; overflow: hidden; }
-  .audit-band::before {
-    content: "";
-    position: absolute;
-    inset: -40% -10% auto -10%;
-    height: 220%;
-    background: conic-gradient(from 0deg, transparent 0 70%, rgba(217,119,6,0.10) 80%, transparent 90%);
-    animation: spin 10s linear infinite;
-    pointer-events: none;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .audit-inner { position: relative; z-index: 1; }
-  .audit-points span {
-    display: inline-block;
-    transition: transform .3s ease, color .3s ease;
-  }
-  .audit-points span:hover { transform: translateY(-3px); }
-  .btn-whatsapp svg {
-    transition: transform .3s ease;
-  }
-  .btn-whatsapp:hover svg {
-    transform: rotate(-8deg) scale(1.15);
-  }
-
-  /* ---------- Mid CTA ---------- */
-  .mid-cta { transition: transform .3s ease; }
-  .mid-cta:hover { transform: translateY(-2px); }
-
-  /* ---------- FAQ ---------- */
-  .faq-item { transition: box-shadow .3s ease; }
-  .faq-q .plus {
-    display: inline-block;
-    transition: transform .3s ease;
-  }
-  .faq-q[aria-expanded="true"] .plus {
-    transform: rotate(45deg);
-  }
-  .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .4s ease, opacity .3s ease, padding .3s ease;
-    opacity: 0;
-  }
-  .faq-a.open {
-    opacity: 1;
-  }
-
-  /* ---------- Contact panel ---------- */
-  .contact-panel {
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-panel::before {
-    content: "";
-    position: absolute;
-    top: -30%; left: -10%;
-    width: 340px; height: 340px;
-    background: radial-gradient(circle, rgba(217,119,6,0.22), transparent 70%);
-    border-radius: 50%;
-    animation: floatY 8s ease-in-out infinite;
-  }
-  .contact-inner { position: relative; z-index: 1; }
-  .contact-ctas .btn:hover { transform: translateY(-3px) scale(1.02); }
-
-  /* ---------- Float CTA + WhatsApp float ---------- */
-  .float-cta {
-    transition: transform .3s ease, box-shadow .3s ease;
-    animation: fadeUp .6s ease .5s both;
-  }
-  .float-cta:hover {
-    transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-  }
-  .whatsapp-float {
-    animation: bob 2.4s ease-in-out infinite, fadeUp .6s ease .6s both;
-  }
-  .whatsapp-float:hover {
-    animation-play-state: paused;
-    transform: scale(1.12);
-  }
-
-  /* ---------- Modal ---------- */
-  .modal-overlay {
-    transition: opacity .3s ease, visibility .3s ease;
-  }
-  .modal-overlay.visible .modal-card {
-    animation: fadeUp .35s cubic-bezier(.21,.6,.35,1) both;
-  }
-  .modal-close {
-    transition: transform .3s ease, background-color .3s ease;
-  }
-  .modal-close:hover {
-    transform: rotate(90deg);
-  }
-  .modal-card input,
-  .modal-card textarea {
-    transition: border-color .25s ease, box-shadow .25s ease;
-  }
-  .modal-card input:focus,
-  .modal-card textarea:focus {
-    box-shadow: 0 0 0 3px rgba(217,119,6,0.18);
-  }
-
-  /* ---------- Section labels: subtle underline draw-in ---------- */
-  .section-head { overflow: visible; }
-  .section-label {
-    position: relative;
-    display: inline-block;
-  }
+}
 
 </style>
 </head>
+
 <body>
 
 <header class="site-nav">
   <div class="wrap nav-inner">
+
     <a href="index.html" class="brand">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.6"><path d="M4 18h16M4 12h16M4 6h10"/></svg></span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.6">
+          <path d="M4 18h16M4 12h16M4 6h10"/>
+        </svg>
+      </span>
       Guruom Computers
     </a>
+
     <nav class="nav-links">
       <a href="index.html">Home</a>
+
       <div class="dropdown">
-        <button class="dropdown-toggle" aria-expanded="false">Services <span class="caret">▾</span></button>
+        <button class="dropdown-toggle" aria-expanded="false">
+          Services <span class="caret">▾</span>
+        </button>
+
         <div class="dropdown-menu">
           <a href="wordpress-development.html">WordPress Development</a>
           <a href="laravel-php-development.html">Laravel / PHP Development</a>
@@ -458,183 +572,718 @@
           <a href="maintenance-support.html">Maintenance &amp; Support</a>
         </div>
       </div>
+
       <a href="portfolio.html">Portfolio</a>
-      <a href="index.html#offers">Pricing</a>
+      <a href="#offers">Pricing</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a href="index.html#audit" class="btn btn-amber nav-cta">Get a free quote</a>
+
+    <a href="#audit" class="btn btn-amber nav-cta">Get a free quote</a>
+
   </div>
 </header>
 
 <main>
 
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow reveal">WEB DEVELOPER · 14+ YEARS · 5.0 RATED</div>
-        <h1 class="reveal d1">A website that loads fast, looks right and brings in customers.</h1>
-        <p class="hero-sub reveal d2">WordPress, WooCommerce, Shopify and Laravel builds at a fixed price, delivered on time, with a 1-year free warranty and a refund if the work doesn't match what we agreed.</p>
-        <div class="hero-ctas reveal d3">
-          <button type="button" class="btn btn-amber" onclick="document.getElementById('leadModal').classList.add('visible')">Get a free quote</button>
-          <a class="btn btn-outline on-dark" href="https://wa.me/919571427243?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20project" target="_blank" rel="noopener">Chat on WhatsApp</a>
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+  <div class="wrap hero-grid">
+
+    <div>
+
+      <div class="eyebrow reveal">
+        RAVINDRA GEHLOT · WEB DEVELOPER · 14+ YEARS · 5.0 RATED
+      </div>
+
+      <h1 class="reveal d1">
+        Websites &amp; Web Apps Built by Ravindra Gehlot
+      </h1>
+
+      <p class="hero-sub reveal d2">
+        A website that loads fast, looks right and brings in customers.
+        WordPress, WooCommerce, Shopify and Laravel development at a
+        fixed price, with a 1-year free warranty.
+      </p>
+
+      <div class="hero-ctas reveal d3">
+
+        <button type="button"
+          class="btn btn-amber"
+          onclick="document.getElementById('leadModal').classList.add('visible')">
+          Get a Free Quote
+        </button>
+
+        <a class="btn btn-diagnostic"
+          href="https://wa.me/919571427243?text=Hi%2C%20I%27d%20like%20to%20book%20a%2030-minute%20free%20diagnostic%20call%20with%20Ravindra"
+          target="_blank"
+          rel="noopener">
+          Book a 30-Minute Free Diagnostic Call
+        </a>
+
+        <a class="btn btn-outline on-dark"
+          href="https://wa.me/919571427243?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20project"
+          target="_blank"
+          rel="noopener">
+          Chat on WhatsApp
+        </a>
+
+      </div>
+
+      <p class="diagnostic-note reveal d3">
+        Free 30-minute consultation · Discuss your website, business
+        requirements, technical issues and growth opportunities directly
+        with Ravindra.
+      </p>
+
+      <div class="hero-stats">
+
+        <div class="stat">
+          <b>5.0</b>
+          <span>67 client reviews</span>
         </div>
-        <div class="hero-stats">
-          <div class="stat"><b>5.0</b><span>67 client reviews</span></div>
-          <div class="stat"><b>20+</b><span>custom WordPress sites</span></div>
-          <div class="stat"><b>95+</b><span>PageSpeed scores</span></div>
+
+        <div class="stat">
+          <b>20+</b>
+          <span>Custom WordPress sites</span>
+        </div>
+
+        <div class="stat">
+          <b>95+</b>
+          <span>PageSpeed scores</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="title-block ticked on-dark reveal d2">
+
+      <div class="tb-row">
+        <span class="k">CONSULTANT</span>
+        <span class="v">Ravindra Gehlot</span>
+      </div>
+
+      <div class="tb-row">
+        <span class="k">EXPERIENCE</span>
+        <span class="v">14+ Years in Web Development</span>
+      </div>
+
+      <div class="tb-row">
+        <span class="k">QUOTE</span>
+        <span class="v">Fixed price, within 24 hours</span>
+      </div>
+
+      <div class="tb-row">
+        <span class="k">WARRANTY</span>
+        <span class="v">1 year, bug fixes free</span>
+      </div>
+
+      <div class="tb-row">
+        <span class="k">REFUND</span>
+        <span class="v">If agreed scope isn't delivered</span>
+      </div>
+
+      <div class="tb-row">
+        <span class="k">SUPPORT</span>
+        <span class="v">Six days a week, direct</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     CUSTOMER PROBLEMS
+===================================================== -->
+
+<section class="alt-bg tight">
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// WHICH ONE SOUNDS LIKE YOU?</div>
+      <h2>Pick your problem. We'll show you the fix.</h2>
+    </div>
+
+    <div class="grid-4">
+
+      <a class="card ticked pain" href="wordpress-development.html">
+        <h3>My website is slow or outdated</h3>
+        <p>Pages take too long and visitors leave. We rebuild or tune it to improve Google PageSpeed performance.</p>
+      </a>
+
+      <a class="card ticked pain" href="shopify-development.html">
+        <h3>I want to sell online</h3>
+        <p>A WooCommerce or Shopify store with payments, shipping and coupons ready for your first order.</p>
+      </a>
+
+      <a class="card ticked pain" href="custom-web-applications.html">
+        <h3>I need a custom system</h3>
+        <p>Portals, dashboards and APIs built around how your business actually runs.</p>
+      </a>
+
+      <a class="card ticked pain" href="maintenance-support.html">
+        <h3>My site keeps breaking</h3>
+        <p>We fix the cause, then keep it updated, backed up and monitored every month.</p>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PRICING
+===================================================== -->
+
+<section id="offers">
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// PRICING</div>
+      <h2>Three packages. Pick one and we start.</h2>
+      <p>Transparent prices, no long discovery process. Final quote confirmed in writing before any work begins.</p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="engage-card ticked">
+
+        <span class="badge">1–3 WEEKS</span>
+
+        <h3>WordPress website</h3>
+
+        <div class="price">₹15,000 – ₹30,000</div>
+        <div class="price-meta">Fixed price</div>
+
+        <ul>
+          <li>Custom or premium theme setup</li>
+          <li>Mobile-responsive on all devices</li>
+          <li>Contact forms and basic SEO</li>
+          <li>Speed optimisation at launch</li>
+          <li>Training to edit content yourself</li>
+        </ul>
+
+        <button type="button" class="btn btn-amber"
+          onclick="document.getElementById('leadModal').classList.add('visible')">
+          Get this quote
+        </button>
+
+      </div>
+
+      <div class="engage-card ticked featured">
+
+        <span class="badge">MOST POPULAR · 2–5 WEEKS</span>
+
+        <h3>Shopify / WooCommerce store</h3>
+
+        <div class="price">₹20,000 – ₹50,000</div>
+        <div class="price-meta">Fixed price</div>
+
+        <ul>
+          <li>Full storefront and product setup</li>
+          <li>Payment gateway integration</li>
+          <li>Shipping, tax and coupon setup</li>
+          <li>Custom theme or Liquid work</li>
+          <li>Order dashboard walkthrough</li>
+        </ul>
+
+        <button type="button" class="btn btn-amber"
+          onclick="document.getElementById('leadModal').classList.add('visible')">
+          Get this quote
+        </button>
+
+      </div>
+
+      <div class="engage-card ticked">
+
+        <span class="badge">3–8 WEEKS</span>
+
+        <h3>PHP / Laravel custom build</h3>
+
+        <div class="price">₹30,000+</div>
+        <div class="price-meta">Scoped quote</div>
+
+        <ul>
+          <li>Custom backend for your workflow</li>
+          <li>Admin dashboard with user roles</li>
+          <li>REST API and integrations</li>
+          <li>Database design and tuning</li>
+          <li>Deployment and documentation</li>
+        </ul>
+
+        <button type="button" class="btn btn-amber"
+          onclick="document.getElementById('leadModal').classList.add('visible')">
+          Get this quote
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="alt-bg">
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// WHAT WE BUILD</div>
+      <h2>One developer for the whole job.</h2>
+    </div>
+
+    <div class="grid-3">
+
+      <a class="service-link-card ticked" href="wordpress-development.html">
+        <h3>WordPress Development</h3>
+        <p>Custom themes, plugins and speed optimisation.</p>
+        <span class="more">See details →</span>
+      </a>
+
+      <a class="service-link-card ticked" href="laravel-php-development.html">
+        <h3>Laravel / PHP Development</h3>
+        <p>Custom backends, APIs and admin systems.</p>
+        <span class="more">See details →</span>
+      </a>
+
+      <a class="service-link-card ticked" href="shopify-development.html">
+        <h3>Shopify Development</h3>
+        <p>Custom themes, apps and store migrations.</p>
+        <span class="more">See details →</span>
+      </a>
+
+      <a class="service-link-card ticked" href="custom-web-applications.html">
+        <h3>Custom Web Applications</h3>
+        <p>Portals, internal tools and SaaS builds.</p>
+        <span class="more">See details →</span>
+      </a>
+
+      <a class="service-link-card ticked" href="ai-integrations.html">
+        <h3>AI Integrations</h3>
+        <p>Chatbots and automation added to your site.</p>
+        <span class="more">See details →</span>
+      </a>
+
+      <a class="service-link-card ticked" href="maintenance-support.html">
+        <h3>Maintenance &amp; Support</h3>
+        <p>Updates, backups and monitoring every month.</p>
+        <span class="more">See details →</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// RESULTS</div>
+      <h2>The numbers from recent work.</h2>
+      <p><a href="portfolio.html" class="btn btn-outline">See the full portfolio</a></p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card ticked case">
+        <div class="cat">SPEED</div>
+        <div class="kpi">
+          <b>95+</b>
+          <span>Google PageSpeed, 40% faster loads</span>
+        </div>
+        <h3>Slow WordPress sites made fast</h3>
+        <p>Caching, database clean-up and asset optimisation across 5+ sites.</p>
+      </div>
+
+      <div class="card ticked case">
+        <div class="cat">DATABASE</div>
+        <div class="kpi">
+          <b>800 → 300ms</b>
+          <span>E-commerce page load time</span>
+        </div>
+        <h3>A faster store through better queries</h3>
+        <p>Indexing, rewritten queries and caching on a growing catalogue.</p>
+      </div>
+
+      <div class="card ticked case">
+        <div class="cat">CRM + WORDPRESS</div>
+        <div class="kpi">
+          <b>45%</b>
+          <span>Better CRM sync efficiency</span>
+        </div>
+        <h3>Live CRM data in WordPress</h3>
+        <p>A headless setup with custom REST endpoints replaced manual copying.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section class="alt-bg">
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// CLIENT FEEDBACK</div>
+      <h2>Rated 5.0 across 67 client reviews.</h2>
+      <p>Verified reviews from the Freelancer profile @gehlot.</p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="testi-card">
+        <div class="stars">★★★★★ 5.0</div>
+        <p class="quote">Very smart individual who easily solved the server issues I was having.</p>
+        <div class="testi-who">
+          <span class="who-left">
+            <span class="testi-avatar" aria-hidden="true">B</span>
+            <span class="who-name">Brennan H.</span>
+          </span>
+          <span>PHP debugging</span>
         </div>
       </div>
-      <div class="title-block ticked on-dark reveal d2">
-        <div class="tb-row"><span class="k">QUOTE</span><span class="v">Fixed price, within 24 hours</span></div>
-        <div class="tb-row"><span class="k">WARRANTY</span><span class="v">1 year, bug fixes free</span></div>
-        <div class="tb-row"><span class="k">REFUND</span><span class="v">If scope isn't delivered</span></div>
-        <div class="tb-row"><span class="k">REVISIONS</span><span class="v">Unlimited until you're happy</span></div>
-        <div class="tb-row"><span class="k">SUPPORT</span><span class="v">Six days a week, direct</span></div>
-      </div>
-    </div>
-  </section>
 
-  <section class="alt-bg tight">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// WHICH ONE SOUNDS LIKE YOU?</div>
-        <h2>Pick your problem. We'll show you the fix.</h2>
-      </div>
-      <div class="grid-4">
-        <a class="card ticked pain" href="wordpress-development.html"><h3>My website is slow or outdated</h3><p>Pages take too long and visitors leave. We rebuild or tune it to score 95+ on Google PageSpeed.</p></a>
-        <a class="card ticked pain" href="shopify-development.html"><h3>I want to sell online</h3><p>A WooCommerce or Shopify store with payments, shipping and coupons ready for your first order.</p></a>
-        <a class="card ticked pain" href="custom-web-applications.html"><h3>I need a custom system</h3><p>Portals, dashboards and APIs built around how your business actually runs.</p></a>
-        <a class="card ticked pain" href="maintenance-support.html"><h3>My site keeps breaking</h3><p>We fix the cause, then keep it updated, backed up and monitored every month.</p></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="offers">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// PRICING</div>
-        <h2>Three packages. Pick one and we start.</h2>
-        <p>Transparent prices, no long discovery process. Final quote confirmed in writing before any work begins.</p>
-      </div>
-      <div class="grid-3">
-        <div class="engage-card ticked"><span class="badge">1–3 WEEKS</span><h3>WordPress website</h3><div class="price">₹15,000 – ₹30,000</div><div class="price-meta">Fixed price</div><ul><li>Custom or premium theme setup</li><li>Mobile-responsive on all devices</li><li>Contact forms and basic SEO</li><li>Speed optimisation at launch</li><li>Training to edit content yourself</li></ul><button type="button" class="btn btn-amber" onclick="document.getElementById('leadModal').classList.add('visible')">Get this quote</button></div>
-        <div class="engage-card ticked featured"><span class="badge">MOST POPULAR · 2–5 WEEKS</span><h3>Shopify / WooCommerce store</h3><div class="price">₹20,000 – ₹50,000</div><div class="price-meta">Fixed price</div><ul><li>Full storefront and product setup</li><li>Payment gateway integration</li><li>Shipping, tax and coupon setup</li><li>Custom theme or Liquid work</li><li>Order dashboard walkthrough</li></ul><button type="button" class="btn btn-amber" onclick="document.getElementById('leadModal').classList.add('visible')">Get this quote</button></div>
-        <div class="engage-card ticked"><span class="badge">3–8 WEEKS</span><h3>PHP / Laravel custom build</h3><div class="price">₹30,000+</div><div class="price-meta">Scoped quote</div><ul><li>Custom backend for your workflow</li><li>Admin dashboard with user roles</li><li>REST API and integrations</li><li>Database design and tuning</li><li>Deployment and documentation</li></ul><button type="button" class="btn btn-amber" onclick="document.getElementById('leadModal').classList.add('visible')">Get this quote</button></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt-bg">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// WHAT WE BUILD</div>
-        <h2>One developer for the whole job.</h2>
-      </div>
-      <div class="grid-3">
-        <a class="service-link-card ticked" href="wordpress-development.html"><h3>WordPress Development</h3><p>Custom themes, plugins and speed optimisation.</p><span class="more">See details →</span></a>
-        <a class="service-link-card ticked" href="laravel-php-development.html"><h3>Laravel / PHP Development</h3><p>Custom backends, APIs and admin systems.</p><span class="more">See details →</span></a>
-        <a class="service-link-card ticked" href="shopify-development.html"><h3>Shopify Development</h3><p>Custom themes, apps and store migrations.</p><span class="more">See details →</span></a>
-        <a class="service-link-card ticked" href="custom-web-applications.html"><h3>Custom Web Applications</h3><p>Portals, internal tools and SaaS builds.</p><span class="more">See details →</span></a>
-        <a class="service-link-card ticked" href="ai-integrations.html"><h3>AI Integrations</h3><p>Chatbots and automation added to your site.</p><span class="more">See details →</span></a>
-        <a class="service-link-card ticked" href="maintenance-support.html"><h3>Maintenance &amp; Support</h3><p>Updates, backups and monitoring every month.</p><span class="more">See details →</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// RESULTS</div>
-        <h2>The numbers from recent work.</h2>
-        <p><a href="portfolio.html" class="btn btn-outline">See the full portfolio</a></p>
-      </div>
-      <div class="grid-3">
-        <div class="card ticked case"><div class="cat">SPEED</div><div class="kpi"><b>95+</b><span>Google PageSpeed, 40% faster loads</span></div><h3>Slow WordPress sites made fast</h3><p>Caching, database clean-up and asset optimisation across 5+ sites.</p></div>
-        <div class="card ticked case"><div class="cat">DATABASE</div><div class="kpi"><b>800 → 300ms</b><span>e-commerce page load time</span></div><h3>A faster store through better queries</h3><p>Indexing, rewritten queries and caching on a growing catalogue.</p></div>
-        <div class="card ticked case"><div class="cat">CRM + WORDPRESS</div><div class="kpi"><b>45%</b><span>better CRM sync efficiency</span></div><h3>Live CRM data in WordPress</h3><p>A headless setup with custom REST endpoints replaced manual copying.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt-bg">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// CLIENT FEEDBACK</div>
-        <h2>Rated 5.0 across 67 client reviews.</h2>
-        <p>Verified reviews from the Freelancer profile @gehlot.</p>
-      </div>
-      <div class="grid-3"><div class="testi-card"><div class="stars">★★★★★ 5.0</div><p class="quote">Very smart individual who easily solved the server issues I was having.</p><div class="testi-who"><span class="who-left"><span class="testi-avatar" aria-hidden="true">B</span><span class="who-name">Brennan H.</span></span><span>PHP debugging</span></div></div><div class="testi-card"><div class="stars">★★★★★ 5.0</div><p class="quote">Very helpful guy. Very dedicated and committed. I will hire him again.</p><div class="testi-who"><span class="who-left"><span class="testi-avatar" aria-hidden="true">L</span><span class="who-name">Lars H.</span></span><span>PHP + Joomla</span></div></div><div class="testi-card"><div class="stars">★★★★★ 5.0</div><p class="quote">Really knowledgeable. I admire the time he spent on my project.</p><div class="testi-who"><span class="who-left"><span class="testi-avatar" aria-hidden="true">K</span><span class="who-name">Krushang S.</span></span><span>WordPress + JS</span></div></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// HOW IT WORKS</div>
-        <h2>From first message to launch in four steps.</h2>
-      </div>
-      <div class="process-list">
-        <div class="process-item"><div class="num">01</div><div><h3>Tell us what you need</h3><p>Use the quote form or WhatsApp. A few lines is enough.</p></div></div>
-        <div class="process-item"><div class="num">02</div><div><h3>Get a fixed quote</h3><p>Price, timeline and risks in writing within 24 hours. NDA first if you want one.</p></div></div>
-        <div class="process-item"><div class="num">03</div><div><h3>We build, you review</h3><p>Progress shown at each milestone, with unlimited revisions until you're happy.</p></div></div>
-        <div class="process-item"><div class="num">04</div><div><h3>Launch and 1-year warranty</h3><p>Go-live support, documentation, and free bug fixes for a full year.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="audit" class="audit-band">
-    <div class="wrap">
-      <div class="audit-inner">
-        <div class="section-label">// FREE · NO OBLIGATION</div>
-        <h2>Not sure what you need? Get a free quote or website audit.</h2>
-        <p>Tell us your idea, or send your current site. You'll get a plain-language answer on what's slowing it down, what's a risk and what's worth doing first.</p>
-        <div class="audit-ctas">
-          <button type="button" class="btn btn-amber" onclick="document.getElementById('leadModal').classList.add('visible')">Get my free quote</button>
-          <a class="btn btn-whatsapp" href="https://wa.me/919571427243?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20project" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        </div>
-        <div class="audit-points"><span>Reply within 24 hours</span><span>Speed and security check</span><span>NDA available</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">// COMMON QUESTIONS</div>
-        <h2>Before you send your first message.</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">How much will my project cost? <span class="plus">+</span></button><div class="faq-a"><p>Most WordPress sites cost ₹15,000–₹30,000 and most stores ₹20,000–₹50,000. Custom builds start at ₹30,000 and are quoted after we understand the scope. You always get the final price in writing before work starts.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">How fast can you start? <span class="plus">+</span></button><div class="faq-a"><p>Usually within 2–3 business days of an agreed quote.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">What if I'm not happy with the result? <span class="plus">+</span></button><div class="faq-a"><p>Revisions are unlimited until you're happy. If the delivered work doesn't match the agreed scope, you get a refund.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you work on existing websites? <span class="plus">+</span></button><div class="faq-a"><p>Yes. A large share of the work is fixing, speeding up or extending an existing WordPress, Laravel or Shopify site without breaking what already works.</p></div></div>
-        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you work with clients outside India? <span class="plus">+</span></button><div class="faq-a"><p>Yes. Work is remote, and communication is available six days a week, including overlap with US and UK hours.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact-cta" class="tight">
-    <div class="wrap">
-      <div class="contact-panel ticked on-dark">
-        <div class="contact-inner">
-          <h2>Ready to get started?</h2>
-          <p class="lead">Send what you need today. You'll have a fixed quote and a timeline within a day.</p>
-          <div class="contact-ctas">
-            <button type="button" class="btn btn-amber" onclick="document.getElementById('leadModal').classList.add('visible')">Get a free quote</button>
-            <a class="btn btn-outline on-dark" href="contact.html">Use the full enquiry form</a>
-          </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★ 5.0</div>
+        <p class="quote">Very helpful guy. Very dedicated and committed. I will hire him again.</p>
+        <div class="testi-who">
+          <span class="who-left">
+            <span class="testi-avatar" aria-hidden="true">L</span>
+            <span class="who-name">Lars H.</span>
+          </span>
+          <span>PHP + Joomla</span>
         </div>
       </div>
+
+      <div class="testi-card">
+        <div class="stars">★★★★★ 5.0</div>
+        <p class="quote">Really knowledgeable. I admire the time he spent on my project.</p>
+        <div class="testi-who">
+          <span class="who-left">
+            <span class="testi-avatar" aria-hidden="true">K</span>
+            <span class="who-name">Krushang S.</span>
+          </span>
+          <span>WordPress + JS</span>
+        </div>
+      </div>
+
     </div>
-  </section>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// HOW IT WORKS</div>
+      <h2>From first message to launch in four steps.</h2>
+    </div>
+
+    <div class="process-list">
+
+      <div class="process-item">
+        <div class="num">01</div>
+        <div>
+          <h3>Tell us what you need</h3>
+          <p>Use the quote form or WhatsApp. A few lines is enough.</p>
+        </div>
+      </div>
+
+      <div class="process-item">
+        <div class="num">02</div>
+        <div>
+          <h3>Get a fixed quote</h3>
+          <p>Price, timeline and risks in writing within 24 hours. NDA first if you want one.</p>
+        </div>
+      </div>
+
+      <div class="process-item">
+        <div class="num">03</div>
+        <div>
+          <h3>We build, you review</h3>
+          <p>Progress shown at each milestone, with revisions according to the agreed scope.</p>
+        </div>
+      </div>
+
+      <div class="process-item">
+        <div class="num">04</div>
+        <div>
+          <h3>Launch and 1-year warranty</h3>
+          <p>Go-live support, documentation, and free bug fixes for a full year under the agreed warranty.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FREE AUDIT
+===================================================== -->
+
+<section id="audit" class="audit-band">
+
+  <div class="wrap">
+
+    <div class="audit-inner">
+
+      <div class="section-label">// FREE · NO OBLIGATION</div>
+
+      <h2>Not sure what you need? Get a free quote or website audit.</h2>
+
+      <p>
+        Tell us your idea, or send your current site. You'll get a
+        plain-language answer on what's slowing it down, what's a risk
+        and what's worth doing first.
+      </p>
+
+      <div class="audit-ctas">
+
+        <button type="button" class="btn btn-amber"
+          onclick="document.getElementById('leadModal').classList.add('visible')">
+          Get my free quote
+        </button>
+
+        <a class="btn btn-whatsapp"
+          href="https://wa.me/919571427243?text=Hi%2C%20I%27d%20like%20a%20free%20website%20audit"
+          target="_blank" rel="noopener">
+          Chat on WhatsApp
+        </a>
+
+      </div>
+
+      <div class="audit-points">
+        <span>Reply within 24 hours</span>
+        <span>Speed and security check</span>
+        <span>NDA available</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     DIAGNOSTIC CALL CTA
+===================================================== -->
+
+<section class="tight">
+
+  <div class="wrap">
+
+    <div class="contact-panel ticked on-dark">
+
+      <div class="contact-inner">
+
+        <div class="section-label">// FREE 30-MINUTE CONSULTATION</div>
+
+        <h2>Let's discuss your next web project.</h2>
+
+        <p class="lead">
+          Have a website idea, an existing technical problem or a business
+          process you want to automate? Book a free 30-minute diagnostic
+          call with Ravindra Gehlot.
+        </p>
+
+        <div class="contact-ctas">
+
+          <a class="btn btn-amber"
+            href="https://wa.me/919571427243?text=Hi%20Ravindra%2C%20I%20would%20like%20to%20book%20a%20free%2030-minute%20diagnostic%20call.%20Please%20share%20your%20available%20time%20slots."
+            target="_blank" rel="noopener">
+            Book My Free Diagnostic Call
+          </a>
+
+          <a class="btn btn-outline on-dark" href="contact.html">
+            Send a Project Enquiry
+          </a>
+
+        </div>
+
+        <p class="diagnostic-note">
+          No obligation · Direct discussion · Practical technical guidance
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="section-label">// COMMON QUESTIONS</div>
+      <h2>Before you send your first message.</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How much will my project cost?
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Most WordPress sites cost ₹15,000–₹30,000 and most stores ₹20,000–₹50,000. Custom builds start at ₹30,000 and are quoted after we understand the scope. You always get the final price in writing before work starts.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How fast can you start?
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Usually within 2–3 business days of an agreed quote.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What if I'm not happy with the result?
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Revisions and remedies are handled according to the agreed project scope. Any refund commitment will be documented in the project agreement.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you work on existing websites?
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. A large share of the work is fixing, speeding up or extending an existing WordPress, Laravel or Shopify site without breaking what already works.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you work with clients outside India?
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. Work is remote, and communication is available six days a week, including overlap with US and UK hours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Is the 30-minute diagnostic call really free?
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. The initial 30-minute discussion is free and has no obligation. You can discuss your website, project requirements, technical issues and possible solutions directly with Ravindra Gehlot.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FINAL CONTACT
+===================================================== -->
+
+<section id="contact-cta" class="tight">
+
+  <div class="wrap">
+
+    <div class="contact-panel ticked on-dark">
+
+      <div class="contact-inner">
+
+        <h2>Ready to get started?</h2>
+
+        <p class="lead">
+          Send what you need today. You'll have a fixed quote and a
+          timeline within a day.
+        </p>
+
+        <div class="contact-ctas">
+
+          <button type="button" class="btn btn-amber"
+            onclick="document.getElementById('leadModal').classList.add('visible')">
+            Get a Free Quote
+          </button>
+
+          <a class="btn btn-outline on-dark" href="contact.html">
+            Use the Full Enquiry Form
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 </main>
 
-</main>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
+
   <div class="wrap foot-inner">
-    <div>© 2026 Guruom Computers. Websites, web apps and AI development built to bring in business.</div>
+
+    <div>
+      © 2026 Guruom Computers. Websites, web apps and AI development
+      built by Ravindra Gehlot.
+    </div>
+
     <div class="foot-links">
       <a href="wordpress-development.html">WordPress</a>
       <a href="laravel-php-development.html">Laravel/PHP</a>
@@ -645,157 +1294,373 @@
       <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
     </div>
+
   </div>
+
 </footer>
 
-<a href="contact.html" class="float-cta">Get a free quote →</a>
+<!-- FLOATING QUOTE -->
 
-<a class="whatsapp-float" href="https://wa.me/919571427243?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+<a href="contact.html" class="float-cta">
+  Get a Free Quote →
 </a>
 
+<!-- FLOATING WHATSAPP -->
+
+<a class="whatsapp-float"
+  href="https://wa.me/919571427243?text=Hi%20Ravindra%2C%20I%20would%20like%20to%20discuss%20a%20project"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp">
+
+  <svg viewBox="0 0 24 24">
+    <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4z"/>
+    <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/>
+  </svg>
+
+</a>
+
+<!-- =====================================================
+     QUOTE MODAL
+===================================================== -->
+
 <div class="modal-overlay" id="leadModal">
-  <div class="modal-card ticked" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-    <div class="modal-eyebrow">// FREE QUOTE · NO OBLIGATION</div>
-    <h3 id="modalTitle">Get your free quote or website audit</h3>
-    <p class="modal-sub">Tell us what you need, or send your site URL. You'll get a fixed quote or a plain-language audit within 24–48 hours.</p>
-    <form action="https://formsubmit.co/ravindra.gehlot@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New quote / audit request (home page)">
+
+  <div class="modal-card ticked"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle">
+
+    <button class="modal-close"
+      id="modalClose"
+      aria-label="Close">
+      ✕
+    </button>
+
+    <div class="modal-eyebrow">
+      // FREE QUOTE · NO OBLIGATION
+    </div>
+
+    <h3 id="modalTitle">
+      Get your free quote or website audit
+    </h3>
+
+    <p class="modal-sub">
+      Tell us what you need, or send your site URL. You'll get a fixed
+      quote or a plain-language audit within 24–48 hours.
+    </p>
+
+    <form action="https://formsubmit.co/ravindra.gehlot@gmail.com"
+      method="POST">
+
+      <input type="hidden"
+        name="_subject"
+        value="New quote / audit request - Guruom Computers">
+
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <div><label for="m-name">YOUR NAME</label><input id="m-name" name="Name" type="text" placeholder="Your name" required></div>
-      <div><label for="m-email">EMAIL</label><input id="m-email" name="Email" type="email" placeholder="you@company.com" required></div>
-      <div><label for="m-site">WEBSITE URL</label><input id="m-site" name="Website" type="text" placeholder="https://yoursite.com"></div>
-      <div><label for="m-project">ANYTHING SPECIFIC WORRYING YOU?</label><textarea id="m-project" name="Details" rows="3" placeholder="Optional — e.g. 'site is slow' or 'need a Shopify store'"></textarea></div>
-      <button type="submit" class="btn btn-amber">Send &amp; get my free quote</button>
-      <p class="modal-fine">No spam, ever. Used only to send your audit.</p>
+
+      <div>
+        <label for="m-name">YOUR NAME</label>
+        <input id="m-name"
+          name="Name"
+          type="text"
+          placeholder="Your name"
+          required>
+      </div>
+
+      <div>
+        <label for="m-email">EMAIL</label>
+        <input id="m-email"
+          name="Email"
+          type="email"
+          placeholder="you@company.com"
+          required>
+      </div>
+
+      <div>
+        <label for="m-site">WEBSITE URL</label>
+        <input id="m-site"
+          name="Website"
+          type="text"
+          placeholder="https://yoursite.com">
+      </div>
+
+      <div>
+        <label for="m-project">
+          ANYTHING SPECIFIC WORRYING YOU?
+        </label>
+
+        <textarea id="m-project"
+          name="Details"
+          rows="3"
+          placeholder="Optional — e.g. site is slow or need a Shopify store">
+        </textarea>
+      </div>
+
+      <button type="submit" class="btn btn-amber">
+        Send &amp; Get My Free Quote
+      </button>
+
+      <p class="modal-fine">
+        No spam. Your details will only be used to respond to your enquiry.
+      </p>
+
     </form>
+
   </div>
+
 </div>
+
+<!-- =====================================================
+     EXISTING SITE SCRIPT
+===================================================== -->
 
 <script src="script.js"></script>
 
-<!-- ===================================================================
-     ANIMATION ENHANCEMENT SCRIPT
-     Runs independently of script.js — safe to keep both.
-=================================================================== -->
+<!-- =====================================================
+     ANIMATION & INTERACTION SCRIPT
+===================================================== -->
+
 <script id="anim-enhancements-js">
+
 (function () {
-  // --- Nav shadow on scroll ---
+
+  // NAV SHADOW
+
   var nav = document.querySelector('.site-nav');
+
   if (nav) {
+
     var onScroll = function () {
-      if (window.scrollY > 12) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
+
+      if (window.scrollY > 12) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+
     };
+
     window.addEventListener('scroll', onScroll, { passive: true });
+
     onScroll();
+
   }
 
-  // --- Scroll reveal (IntersectionObserver) ---
-  var revealEls = document.querySelectorAll('[data-reveal], [data-reveal-stagger], .process-item');
+  // SCROLL REVEAL
+
+  var revealEls = document.querySelectorAll(
+    '[data-reveal], [data-reveal-stagger], .process-item'
+  );
+
   if ('IntersectionObserver' in window && revealEls.length) {
+
     var io = new IntersectionObserver(function (entries) {
+
       entries.forEach(function (entry) {
+
         if (entry.isIntersecting) {
+
           entry.target.classList.add('in-view');
+
           io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
 
-    // Stagger children of [data-reveal-stagger]
-    document.querySelectorAll('[data-reveal-stagger]').forEach(function (group) {
-      var children = group.children;
-      Array.prototype.forEach.call(children, function (child, i) {
-        child.style.transitionDelay = (i * 0.08) + 's';
+        }
+
       });
+
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
     });
-  } else {
-    // Fallback: just show everything
-    revealEls.forEach(function (el) { el.classList.add('in-view'); });
-  }
 
-  // --- Animated stat counters ---
-  var counters = document.querySelectorAll('[data-count]');
-  if ('IntersectionObserver' in window && counters.length) {
-    var counted = new WeakSet();
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !counted.has(entry.target)) {
-          counted.add(entry.target);
-          animateCount(entry.target);
-          cio.unobserve(entry.target);
-        }
+    revealEls.forEach(function (el) {
+      io.observe(el);
+    });
+
+    document.querySelectorAll('[data-reveal-stagger]').forEach(function (group) {
+
+      var children = group.children;
+
+      Array.prototype.forEach.call(children, function (child, i) {
+
+        child.style.transitionDelay = (i * 0.08) + 's';
+
       });
-    }, { threshold: 0.6 });
-    counters.forEach(function (el) { cio.observe(el); });
-  }
-  function animateCount(el) {
-    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
-    var suffix = el.getAttribute('data-suffix') || '';
-    var duration = 900;
-    var start = null;
-    function step(ts) {
-      if (start === null) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var value = Math.round(target * eased);
-      el.textContent = value + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
-    }
-    requestAnimationFrame(step);
+
+    });
+
+  } else {
+
+    revealEls.forEach(function (el) {
+      el.classList.add('in-view');
+    });
+
   }
 
-  // --- FAQ accordion with smooth height animation ---
+  // ANIMATED COUNTERS
+
+  var counters = document.querySelectorAll('[data-count]');
+
+  if ('IntersectionObserver' in window && counters.length) {
+
+    var counted = new WeakSet();
+
+    var cio = new IntersectionObserver(function (entries) {
+
+      entries.forEach(function (entry) {
+
+        if (entry.isIntersecting && !counted.has(entry.target)) {
+
+          counted.add(entry.target);
+
+          animateCount(entry.target);
+
+          cio.unobserve(entry.target);
+
+        }
+
+      });
+
+    }, { threshold: 0.6 });
+
+    counters.forEach(function (el) {
+      cio.observe(el);
+    });
+
+  }
+
+  function animateCount(el) {
+
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+
+    var suffix = el.getAttribute('data-suffix') || '';
+
+    var duration = 900;
+
+    var start = null;
+
+    function step(ts) {
+
+      if (start === null) start = ts;
+
+      var progress = Math.min((ts - start) / duration, 1);
+
+      var eased = 1 - Math.pow(1 - progress, 3);
+
+      var value = Math.round(target * eased);
+
+      el.textContent = value + suffix;
+
+      if (progress < 1) {
+
+        requestAnimationFrame(step);
+
+      } else {
+
+        el.textContent = target + suffix;
+
+      }
+
+    }
+
+    requestAnimationFrame(step);
+
+  }
+
+  // FAQ ACCORDION
+
   document.querySelectorAll('.faq-q').forEach(function (btn) {
+
     btn.addEventListener('click', function () {
+
       var item = btn.closest('.faq-item');
+
       var answer = item.querySelector('.faq-a');
+
       var isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-      // Close all other FAQ items (accordion behavior)
       document.querySelectorAll('.faq-q').forEach(function (otherBtn) {
+
         if (otherBtn !== btn) {
+
           otherBtn.setAttribute('aria-expanded', 'false');
-          var otherAnswer = otherBtn.closest('.faq-item').querySelector('.faq-a');
+
+          var otherAnswer = otherBtn.closest('.faq-item')
+            .querySelector('.faq-a');
+
           otherAnswer.style.maxHeight = null;
+
           otherAnswer.classList.remove('open');
+
         }
+
       });
 
       if (isOpen) {
+
         btn.setAttribute('aria-expanded', 'false');
+
         answer.style.maxHeight = null;
+
         answer.classList.remove('open');
+
       } else {
+
         btn.setAttribute('aria-expanded', 'true');
+
         answer.classList.add('open');
+
         answer.style.maxHeight = answer.scrollHeight + 'px';
+
       }
+
     });
+
   });
 
-  // --- Modal close handling (in case script.js doesn't already do this) ---
+  // MODAL CLOSE
+
   var modal = document.getElementById('leadModal');
+
   var modalClose = document.getElementById('modalClose');
+
   if (modal && modalClose) {
+
     modalClose.addEventListener('click', function () {
+
       modal.classList.remove('visible');
+
     });
+
     modal.addEventListener('click', function (e) {
-      if (e.target === modal) modal.classList.remove('visible');
+
+      if (e.target === modal) {
+
+        modal.classList.remove('visible');
+
+      }
+
     });
+
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') modal.classList.remove('visible');
+
+      if (e.key === 'Escape') {
+
+        modal.classList.remove('visible');
+
+      }
+
     });
+
   }
+
 })();
+
 </script>
 
 <script src="tracking.js" defer></script>
+
 </body>
 </html>
